@@ -1,5 +1,6 @@
 import * as express from "express"
 import { join } from "path"
+import * as ejs from "ejs"
 import * as favicon from "serve-favicon"
 import { json, urlencoded } from "body-parser"
 
@@ -9,10 +10,14 @@ import "./models/user"
 connect(DATABASE)
 
 import { AuthRouter } from "./routes/auth"
+import { IndexRouter } from "./routes/index"
 
 const app: express.Application = express()
 app.disable("x-powered-by")
 
+app.set('views', join(__dirname, 'public'))
+app.set('view engine', 'ejs')
+app.engine('html', ejs.renderFile)
 app.use(favicon(join(__dirname, "public", "favicon.ico")))
 app.use(express.static(join(__dirname, 'public')))
 
@@ -20,12 +25,7 @@ app.use(json())
 app.use(urlencoded({ extended: true }))
 
 app.use("/api/auth", AuthRouter)
-
-// catch 404 and forward to error handler
-app.use(function(req: express.Request, res: express.Response, next) {
-    let err = new Error("Not Found")
-    next(err)
-})
+app.use('/*', IndexRouter)
 
 // development error handler
 // will print stacktrace
