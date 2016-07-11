@@ -1,0 +1,41 @@
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  line-height: $base-line-height;
+  font-family: 'PF Beau Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: $base-font-weight;
+  font-size: $base-font-size;
+  color: $mineshaft;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: $redorange;
+  outline: none;
+  &:hover {
+  	text-decoration: underline;
+    color: darken($redorange, 5%);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: $base-line-height;
+  font-weight: $base-font-weight;
+  font-size: $base-font-size;
+}
+
+ul, ol {
+  list-style: none;
+}
