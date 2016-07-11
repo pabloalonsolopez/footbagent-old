@@ -1,5 +1,5 @@
 dist
 node_modules
-src/client/typings
-src/server/typings
+client/typings
+server/typings
 npm-debug.log

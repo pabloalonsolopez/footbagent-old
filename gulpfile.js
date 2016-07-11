@@ -33,11 +33,11 @@ gulp.task('prod', function(cb) {
         })
 
             gulp.task('clean:typings-server', function () {
-                return del('src/server/typings')
+                return del('server/typings')
             })
 
             gulp.task('clean:typings-client', function () {
-                return del('src/client/typings')
+                return del('client/typings')
             })
 
         gulp.task('clean:dist', function () {
@@ -55,12 +55,12 @@ gulp.task('prod', function(cb) {
         })
 
             gulp.task('build:typings-server', function () {
-                return gulp.src('src/server/typings.json')
+                return gulp.src('server/typings.json')
                     .pipe(typings())
             })
 
             gulp.task('build:typings-client', function () {
-                return gulp.src('src/client/typings.json')
+                return gulp.src('client/typings.json')
                     .pipe(typings())
             })
 
@@ -70,13 +70,13 @@ gulp.task('prod', function(cb) {
         })
 
             gulp.task('build:server-www', function () {
-                return gulp.src('src/server/bin/www')
+                return gulp.src('server/bin/www')
                     .pipe(gulp.dest('dist/bin'))
             })
 
             gulp.task('build:server-ts', function () {
-                var tsProject = ts.createProject('src/server/tsconfig.json')
-                var tsResult = gulp.src(['src/server/**/*.ts'])
+                var tsProject = ts.createProject('server/tsconfig.json')
+                var tsResult = gulp.src(['server/**/*.ts'])
                     .pipe(sourcemaps.init())
                     .pipe(ts(tsProject))
                 return tsResult.js
@@ -94,8 +94,8 @@ gulp.task('prod', function(cb) {
             })
 
                 gulp.task('build:client-compile', function () {
-                    var tsProject = ts.createProject('src/client/tsconfig.json')
-                    var tsResult = gulp.src('src/client/**/*.ts')
+                    var tsProject = ts.createProject('client/tsconfig.json')
+                    var tsResult = gulp.src('client/**/*.ts')
                         .pipe(sourcemaps.init())
                         .pipe(ts(tsProject))
                     return tsResult.js
@@ -104,7 +104,7 @@ gulp.task('prod', function(cb) {
                 })
 
                 gulp.task('build:client-bundle', function() {
-                    var builder = new systembuilder('', 'src/client/systemjs.config.js')
+                    var builder = new systembuilder('', 'client/systemjs.config.js')
                     return builder.buildStatic('dist/client/app/main.js', 'dist/public/assets/js/bundle.min.js', { minify: true, mangle: true, rollup: true })
                         .then(function() {
                             del('dist/client')
@@ -114,7 +114,7 @@ gulp.task('prod', function(cb) {
                 })
 
             gulp.task('build:client-html', function() {
-                return gulp.src('src/client/**/*.html')
+                return gulp.src('client/**/*.html')
                     .pipe(gulp.dest('dist/public'))
                     .pipe(browsersync.stream())
             })
@@ -125,7 +125,7 @@ gulp.task('prod', function(cb) {
         })
 
             gulp.task('build:public-move', function() {
-                return gulp.src(['src/public/**/*', '!src/public/assets/css/**/*'])
+                return gulp.src(['public/**/*', '!public/assets/css/**/*'])
                     .pipe(gulp.dest('dist/public'))
                     .pipe(browsersync.stream())
             })
@@ -143,7 +143,7 @@ gulp.task('prod', function(cb) {
             })
 
             gulp.task('build:public-styles', function() {
-                return gulp.src('src/public/assets/css/styles.scss')
+                return gulp.src('public/assets/css/styles.scss')
                     .pipe(concat('styles.min.css'))
                     .pipe(sass().on('error', sass.logError))
                     .pipe(autoprefixer())
@@ -168,7 +168,7 @@ gulp.task('prod', function(cb) {
             return nodemon({
                 script: 'dist/bin/www',
                 ext: 'ts',
-                watch: ['src/server'],
+                watch: ['server'],
                 env: { 'NODE_ENV': 'development' },
                 tasks: ['build:server']
             }).on('restart', function() {
@@ -179,16 +179,16 @@ gulp.task('prod', function(cb) {
         })
 
         gulp.task('serve:watch', function() {
-            watch('src/client/**/*.ts', function() {
+            watch('client/**/*.ts', function() {
                 gulp.start('build:client-ts')
             })
-            watch('src/client/**/*.html', function() {
+            watch('client/**/*.html', function() {
                 gulp.start('build:client-html')
             })
-            watch('src/public/assets/css/**/*.scss', function() {
+            watch('public/assets/css/**/*.scss', function() {
                 gulp.start('build:public-styles')
             })
-            watch(['src/client/assets/**/*', '!src/client/assets/css'], function() {
+            watch(['client/assets/**/*', '!client/assets/css'], function() {
                 gulp.start('build:public-move')
             })
         })
