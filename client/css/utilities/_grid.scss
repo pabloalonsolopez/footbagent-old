@@ -47,6 +47,7 @@
 }
 
 .col {
+  max-width: 100%;
   flex: 1 1 auto;
   padding: $grid-gutter/2 $grid-gutter/2;
 }

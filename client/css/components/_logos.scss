@@ -1,0 +1,15 @@
+.global-logo, .login-logo, .signup-logo {
+  transition: all 120ms linear;
+  &:hover {
+    color: darken($redorange, 5%);
+    text-decoration: none;
+  }
+}
+
+.global-logo {
+  font-size: 3.6rem;
+}
+
+.login-logo, .signup-logo {
+  font-size: 6rem;
+}

@@ -1,0 +1,7 @@
+.global-link {
+  color: $dovegray;
+  transition: all 120ms linear;
+  &:hover {
+	color: $mineshaft;
+  }
+}

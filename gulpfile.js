@@ -86,7 +86,7 @@ gulp.task('prod', function(cb) {
 
         //CLIENT
         gulp.task('build:client', function (cb) {
-            sequence(['build:client-ts', 'build:client-html'])(cb)
+            sequence(['build:client-ts', 'build:client-html', 'build:client-styles'])(cb)
         })
 
             gulp.task('build:client-ts', function (cb) {
@@ -119,13 +119,23 @@ gulp.task('prod', function(cb) {
                     .pipe(browsersync.stream())
             })
 
+            gulp.task('build:client-styles', function() {
+                return gulp.src('client/css/styles.scss')
+                    .pipe(concat('styles.min.css'))
+                    .pipe(sass().on('error', sass.logError))
+                    .pipe(autoprefixer())
+                    .pipe(clean())
+                    .pipe(gulp.dest('dist/public/assets/css'))
+                    .pipe(browsersync.stream())
+            })
+
         //PUBLIC
         gulp.task('build:public', function(cb) {
-            sequence(['build:public-move', 'build:public-vendor', 'build:public-styles'])(cb)
+            sequence(['build:public-move', 'build:public-vendor'])(cb)
         })
 
             gulp.task('build:public-move', function() {
-                return gulp.src(['public/**/*', '!public/assets/css/**/*'])
+                return gulp.src('public/**/*')
                     .pipe(gulp.dest('dist/public'))
                     .pipe(browsersync.stream())
             })
@@ -140,16 +150,6 @@ gulp.task('prod', function(cb) {
                 ]
                 return gulp.src(vendors)
                     .pipe(gulp.dest('dist/public/assets/js/vendor'))
-            })
-
-            gulp.task('build:public-styles', function() {
-                return gulp.src('public/assets/css/styles.scss')
-                    .pipe(concat('styles.min.css'))
-                    .pipe(sass().on('error', sass.logError))
-                    .pipe(autoprefixer())
-                    .pipe(clean())
-                    .pipe(gulp.dest('dist/public/assets/css'))
-                    .pipe(browsersync.stream())
             })
 
     // SERVE
@@ -185,10 +185,10 @@ gulp.task('prod', function(cb) {
             watch('client/**/*.html', function() {
                 gulp.start('build:client-html')
             })
-            watch('public/assets/css/**/*.scss', function() {
-                gulp.start('build:public-styles')
+            watch('client/**/*.scss', function() {
+                gulp.start('build:client-styles')
             })
-            watch(['client/assets/**/*', '!client/assets/css'], function() {
+            watch('public/**/*', function() {
                 gulp.start('build:public-move')
             })
         })

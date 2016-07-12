@@ -1,0 +1,10 @@
+.list-inline {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+ 	display: block;
+  	&:not(:last-child) {
+      margin-right: 22px;
+  	}
+  }
+}

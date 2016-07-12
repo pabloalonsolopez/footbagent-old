@@ -1,0 +1,27 @@
+.button {
+	border: 1px solid $redorange;
+	border-radius: 4px;
+	padding: 7px 20px;
+	background-color: $white;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 120ms linear;
+	&:hover {
+	  border-color: darken($redorange, 5%);
+	  background-color: darken($white, 2%);
+	  text-decoration: none;
+	  color: darken($redorange, 5%);
+	}
+	&.button-primary {
+		background-color: $redorange;
+		color: $white;
+		&:hover {
+		  background-color: darken($redorange, 5%);
+		  color: $white;
+		}
+	}
+	&.button-big {
+		padding: 15px 30px;
+		font-size: 1.6rem;
+	}
+}

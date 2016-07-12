@@ -1,1 +1,24 @@
-<p>Login</p>
+<div class="centered-form">
+	<form>
+		<div class="row">
+			<div class="col col-xs-12">
+				<a [routerLink]="['']" class="login-logo icon-logo"></a>
+			</div>
+			<div class="col col-xs-12">
+				<h1 class="h1">Log in to your account</h1>
+			</div>
+			<div class="col col-xs-12">
+				<input type="email" placeholder="Email"/>
+			</div>
+			<div class="col col-xs-12">
+				<input type="password" placeholder="Password"/>
+			</div>
+			<div class="col col-xs-12">
+				<input type="submit" value="Log In" class="button button-big button-primary"/>
+			</div>
+			<div class="col col-xs-12">
+				<p>New to Footbagent? <a [routerLink]="['/signup']">Sign Up</a></p>
+			</div>
+		</div>
+	</form>
+</div>
