@@ -12,3 +12,40 @@ input, textarea {
     border-color: $mariner;
   }
 }
+
+.ng-invalid.ng-dirty {
+  border-color: #D64242;
+}
+
+.error {
+  position: relative;
+  border: 1px solid #D64242;
+  border-radius: 4px;
+  background-color: #D64242;
+  padding: 7px 15px;
+  text-align: center;
+  font-size: 1.3rem;
+  color: $white;
+  &.error-top {
+    margin-top: 14px;
+    &:before {
+      top: -7px;
+      border-top-width: 0;
+      border-bottom-color: #D64242;
+    }
+  }
+  &.error-bottom {
+    margin-bottom: 14px;
+    &:before {
+      bottom: -7px;
+      border-bottom-width: 0;
+      border-top-color: #D64242;
+    }
+  }
+  &:before {
+    position: absolute;
+    left: 10px;
+    border: 7px solid transparent;
+    content:'';
+  }
+}

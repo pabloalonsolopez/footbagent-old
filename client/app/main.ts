@@ -1,12 +1,19 @@
-import { bootstrap }    from '@angular/platform-browser-dynamic'
+import { bootstrap } from '@angular/platform-browser-dynamic'
 import { disableDeprecatedForms, provideForms } from '@angular/forms'
-
-import { AppComponent } from './app.component'
+import { HTTP_PROVIDERS } from '@angular/http'
 
 import { APP_ROUTER_PROVIDERS } from './app.routes'
+
+import { AuthService } from './shared/auth.service'
+import { AuthGuard } from './shared/auth.guard'
+
+import { AppComponent } from './app.component'
 
 bootstrap(AppComponent, [
 	disableDeprecatedForms(),
 	provideForms(),
-	APP_ROUTER_PROVIDERS
+	HTTP_PROVIDERS,
+	APP_ROUTER_PROVIDERS,
+	AuthService,
+	AuthGuard
 ]).catch((err: any) => console.error(err))

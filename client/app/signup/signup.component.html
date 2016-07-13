@@ -1,26 +1,46 @@
 <div class="container-slim">
-	<form novalidate autocomplete="off">
+	<form novalidate autocomplete="off" (ngSubmit)="onSubmit()" #signupForm="ngForm">
 		<div class="row">
 			<div class="col col-xs-12 text-center">
-				<a [routerLink]="['']" class="signup-logo icon-logo"></a>
+				<a class="signup-logo icon-logo" [routerLink]="['']"></a>
 			</div>
 			<div class="col col-xs-12 text-center">
 				<h1 class="h1">Sign up and experience Footbagent today</h1>
 			</div>
-			<div class="col col-xs-12">
-				<input type="text" placeholder="First name"/>
+			<div class="col col-xs-12" *ngIf="error">
+				<div class="error">
+					{{error.message}}
+				</div>
 			</div>
 			<div class="col col-xs-12">
-				<input type="text" placeholder="Last name"/>
+				<input type="text" placeholder="First name" required name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel"/>
+				<div class="error error-top" [hidden]="firstName.valid || firstName.pristine">
+					First name is required
+				</div>
 			</div>
 			<div class="col col-xs-12">
-				<input type="email" placeholder="Email"/>
+				<input type="text" placeholder="Last name" required name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel"/>
+				<div class="error error-top" [hidden]="lastName.valid || lastName.pristine">
+					Last name is required
+				</div>
 			</div>
 			<div class="col col-xs-12">
-				<input type="password" placeholder="Password"/>
+				<input type="email" placeholder="Email" required validateEmail name="username" [(ngModel)]="user.username" #username="ngModel"/>
+				<div class="error error-top" [hidden]="username.valid || username.pristine">
+					Email is required
+				</div>
+				<div class="error error-top" [hidden]="username.validateEmail.valid || username.pristine">
+					Email has a wrong format
+				</div>
 			</div>
 			<div class="col col-xs-12">
-				<input type="submit" value="Create Account" class="button button-primary"/>
+				<input type="password" placeholder="Password" required name="password" [(ngModel)]="user.password" #password="ngModel"/>
+				<div class="error error-top" [hidden]="password.valid || password.pristine">
+					Password is required
+				</div>
+			</div>
+			<div class="col col-xs-12">
+				<input type="submit" value="Create Account" class="button button-primary" [disabled]="!signupForm.form.valid"/>
 			</div>
 			<div class="col col-xs-12 text-center">
 				<p>Signing up signifies that you have read and agree to the <a [routerLink]="['/terms']">Terms of Service</a> and <a [routerLink]="['/privacy']">Privacy Policy</a>.</p>

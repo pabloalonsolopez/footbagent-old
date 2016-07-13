@@ -1,20 +1,29 @@
 <div class="container-slim">
-	<form novalidate autocomplete="off">
+	<form novalidate autocomplete="off" (ngSubmit)="onSubmit()" #loginForm="ngForm">
 		<div class="row">
 			<div class="col col-xs-12 text-center">
-				<a [routerLink]="['']" class="login-logo icon-logo"></a>
+				<a class="login-logo icon-logo" [routerLink]="['']"></a>
 			</div>
 			<div class="col col-xs-12 text-center">
 				<h1 class="h1">Log in to your account</h1>
 			</div>
-			<div class="col col-xs-12">
-				<input type="email" placeholder="Email"/>
+			<div class="col col-xs-12" *ngIf="error">
+				{{error.message}}
 			</div>
 			<div class="col col-xs-12">
-				<input type="password" placeholder="Password"/>
+				<input type="email" placeholder="Email" required name="username" [(ngModel)]="user.username" #username="ngModel"/>
+				<div [hidden]="username.valid || username.pristine">
+					Email is required
+				</div>
 			</div>
 			<div class="col col-xs-12">
-				<input type="submit" value="Log In" class="button button-primary"/>
+				<input type="password" placeholder="Password" required name="password" [(ngModel)]="user.password" #password="ngModel"/>
+				<div [hidden]="password.valid || password.pristine">
+					Password is required
+				</div>
+			</div>
+			<div class="col col-xs-12">
+				<input type="submit" value="Log In" class="button button-primary" [disabled]="!loginForm.form.valid"/>
 			</div>
 			<div class="col col-xs-12 text-center">
 				<p>New to Footbagent? <a [routerLink]="['/signup']">Sign Up</a></p>

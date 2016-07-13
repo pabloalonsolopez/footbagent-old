@@ -4,12 +4,15 @@ import { DashboardComponent } from './dashboard.component'
 import { DashboardDetailComponent } from './dashboard-detail.component'
 import { ResourcesComponent } from './resources/resources.component'
 
+import { AuthGuard } from '../../shared/auth.guard'
+
 export const DashboardRoutes: RouterConfig = [
   { path: 'dashboard', component: DashboardComponent, 
   	children: [
   	  { path: '', redirectTo: 'detail', pathMatch: 'full' },
       { path: 'detail', component: DashboardDetailComponent },
       { path: 'resources', component: ResourcesComponent }
-    ]
+    ],
+    canActivate: [AuthGuard]
   }
 ]

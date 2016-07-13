@@ -6,7 +6,7 @@
 	font-weight: 600;
 	cursor: pointer;
 	transition: all 120ms linear;
-	&:hover {
+	&:hover:enabled {
 	  border-color: darken($mariner, 10%);
 	  background-color: darken($white, 2%);
 	  text-decoration: none;
@@ -15,9 +15,13 @@
 	&.button-primary {
 		background-color: $mariner;
 		color: $white;
-		&:hover {
+		&:hover:enabled {
 		  background-color: darken($mariner, 10%);
 		  color: $white;
 		}
 	}
+	&[disabled] {
+    	opacity: 0.5;
+    	cursor: default;
+  	}
 }
