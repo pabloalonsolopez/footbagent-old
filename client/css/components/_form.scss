@@ -1,10 +1,14 @@
 input, textarea {
   width: 100%;
-  border: 1px solid $seashell;
+  border: 1px solid $mercury;
   border-radius: 4px;
   padding: 7px 15px;
+  color: $mineshaft;
   outline: none;
+  &::-webkit-input-placeholder {
+    color: lighten($mineshaft, 20%);
+  }
   &:focus {
-    border-color: $redorange;
+    border-color: $mariner;
   }
 }

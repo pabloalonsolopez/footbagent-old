@@ -1,7 +1,7 @@
 .global-logo, .login-logo, .signup-logo {
   transition: all 120ms linear;
   &:hover {
-    color: darken($redorange, 5%);
+    color: darken($mariner, 10%);
     text-decoration: none;
   }
 }

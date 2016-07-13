@@ -21,11 +21,11 @@ body {
 
 a {
   text-decoration: none;
-  color: $redorange;
+  color: $mariner;
   outline: none;
   &:hover {
   	text-decoration: underline;
-    color: darken($redorange, 5%);
+    color: darken($mariner, 10%);
   }
 }
 
@@ -36,12 +36,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: $base-font-size;
 }
 
-ul, ol {
-  list-style: none;
-}
-
 .h1 {
   line-height: 1.2;
   font-weight: 600;
   font-size: 3.2rem;
+}
+
+ul, ol {
+  list-style: none;
 }

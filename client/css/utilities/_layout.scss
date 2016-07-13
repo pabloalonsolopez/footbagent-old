@@ -21,8 +21,7 @@ login, signup, main {
   height: 100%;
 }
 
-.centered-form {
-  width: 500px;
-  margin: auto;
-  text-align: center;
+login, signup {
+  align-items: center;
+  justify-content: center;
 }

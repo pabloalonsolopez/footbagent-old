@@ -11,7 +11,7 @@
 }
 
 .container-slim {
-  max-width: 800px;
+  max-width: $container-slim-max-width;
   width: 100%;
   margin: 0 auto;
   padding: $grid-gutter/2 $grid-gutter;

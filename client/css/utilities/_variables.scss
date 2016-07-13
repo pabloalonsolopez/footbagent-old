@@ -1,10 +1,10 @@
 //Colors
 $white:										#FFFFFF !default;
 $seashell:									#F1F1F1 !default;
-$wildsand:									#F6F6F6 !default;
+$mercury:									#E6E6E6 !default;
 $dovegray:									#666666 !default;
 $mineshaft:									#333333 !default;
-$redorange:									#FF3333 !default;
+$mariner:									#2279DA !default;
 
 //Typography
 $base-line-height:							1.4 !default;
@@ -17,4 +17,5 @@ $spacers:									(md: 22px) !default;
 //Grid
 $mq-sm:										'(min-width: 768px)' !default;
 $container-max-width:						1240px !default;
+$container-slim-max-width:					400px !default;
 $grid-gutter:								22px !default;
