@@ -13,7 +13,7 @@ input, textarea {
   }
 }
 
-.ng-invalid.ng-dirty {
+.ng-invalid.ng-touched.ng-dirty {
   border-color: #D64242;
 }
 

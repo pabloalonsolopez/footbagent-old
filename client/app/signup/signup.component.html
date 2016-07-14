@@ -14,28 +14,25 @@
 			</div>
 			<div class="col col-xs-12">
 				<input type="text" placeholder="First name" required name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel"/>
-				<div class="error error-top" [hidden]="firstName.valid || firstName.pristine">
+				<div class="error error-top" *ngIf="!firstName.valid && firstName.touched && firstName.dirty">
 					First name is required
 				</div>
 			</div>
 			<div class="col col-xs-12">
 				<input type="text" placeholder="Last name" required name="lastName" [(ngModel)]="user.lastName" #lastName="ngModel"/>
-				<div class="error error-top" [hidden]="lastName.valid || lastName.pristine">
+				<div class="error error-top" *ngIf="!lastName.valid && lastName.touched && lastName.dirty">
 					Last name is required
 				</div>
 			</div>
 			<div class="col col-xs-12">
-				<input type="email" placeholder="Email" required validateEmail name="username" [(ngModel)]="user.username" #username="ngModel"/>
-				<div class="error error-top" [hidden]="username.valid || username.pristine">
-					Email is required
-				</div>
-				<div class="error error-top" [hidden]="username.validateEmail.valid || username.pristine">
-					Email has a wrong format
+				<input type="email" placeholder="Email" validateEmail name="username" [(ngModel)]="user.username" #username="ngModel"/>
+				<div class="error error-top" *ngIf="!username.valid && username.touched && username.dirty">
+					Email format is not correct
 				</div>
 			</div>
 			<div class="col col-xs-12">
 				<input type="password" placeholder="Password" required name="password" [(ngModel)]="user.password" #password="ngModel"/>
-				<div class="error error-top" [hidden]="password.valid || password.pristine">
+				<div class="error error-top" *ngIf="!password.valid && password.touched && password.dirty">
 					Password is required
 				</div>
 			</div>
