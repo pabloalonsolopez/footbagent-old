@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core'
+import { REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router, ROUTER_DIRECTIVES } from '@angular/router'
 
+import { ValidationService } from '../shared/validation.service'
 import { AuthService } from '../shared/auth.service'
 
 import { User } from '../users/user'
@@ -8,24 +10,43 @@ import { User } from '../users/user'
 @Component({
 	selector: 'login',
 	templateUrl: './app/login/login.component.html',
-	directives: [ROUTER_DIRECTIVES]
+	directives: [REACTIVE_FORM_DIRECTIVES, ROUTER_DIRECTIVES]
 })
 
 export class LoginComponent implements OnInit {
+	submitted: boolean = true
+	loginForm: FormGroup
 	user: User
 	error: any
 
-	constructor(private authService: AuthService, private router: Router) {}
+	constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {}
 	
 	ngOnInit() {
-		this.user = new User()
+		this.buildForm()
 	}
 
 	onSubmit() {
+		this.user = this.loginForm.value
 		this.authService.login(this.user)
             .subscribe(
             	response => this.router.navigate(['/dashboard']),
-            	error => this.error = <any>error)
+            	error => {
+            		this.error = error
+            		this.reset()
+            	})
+	}
+
+	buildForm() {
+		this.loginForm = this.formBuilder.group({
+	      'username': ['', [Validators.required, ValidationService.email]],
+	      'password': ['', Validators.required]
+	    })
+	}
+
+	reset() {
+		this.buildForm()
+        this.submitted = false
+		setTimeout(() => this.submitted = true, 0)
 	}
 
 }

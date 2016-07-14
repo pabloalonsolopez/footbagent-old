@@ -8,9 +8,11 @@
 			</div>
 			<div class="col col-xs-shrink">
 				<ul class="list-inline">
-					<li><a [routerLink]="['/login']" class="global-link">Log in</a></li>
-					<li><a [routerLink]="['/signup']" class="button button-primary">Sign up</a></li>
-					<li><a [routerLink]="['/dashboard']" class="button">Dashboard</a></li>
+					<li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['/login']" class="global-link">Log in</a></li>
+					<li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['/signup']" class="button button-primary">Sign up</a></li>
+					<li *ngIf="authService.isAuthenticated()"><a [routerLink]="['/dashboard']" class="button">Dashboard</a></li>
+					<li *ngIf="authService.isAuthenticated()"><a class="global-link">{{authService.profile.username}}</a></li>
+					<li *ngIf="authService.isAuthenticated()"><a class="global-link" (click)="authService.logout()">Logout</a></li>
 				</ul>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 <div class="container-slim">
-	<form novalidate autocomplete="off" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+	<form novalidate autocomplete="off" [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="submitted">
 		<div class="row">
 			<div class="col col-xs-12 text-center">
 				<a class="login-logo icon-logo" [routerLink]="['']"></a>
@@ -8,22 +8,25 @@
 				<h1 class="h1">Log in to your account</h1>
 			</div>
 			<div class="col col-xs-12" *ngIf="error">
-				{{error.message}}
-			</div>
-			<div class="col col-xs-12">
-				<input type="email" placeholder="Email" required name="username" [(ngModel)]="user.username" #username="ngModel"/>
-				<div [hidden]="username.valid || username.pristine">
-					Email is required
+				<div class="error">
+					<p>{{error.message}}</p>
 				</div>
 			</div>
 			<div class="col col-xs-12">
-				<input type="password" placeholder="Password" required name="password" [(ngModel)]="user.password" #password="ngModel"/>
-				<div [hidden]="password.valid || password.pristine">
-					Password is required
+				<input type="email" placeholder="Email" id="username" formControlName="username"/>
+				<div class="error error-top" *ngIf="!loginForm.controls.username.valid && loginForm.controls.username.touched && loginForm.controls.username.dirty">
+					<p *ngIf="loginForm.controls.username.hasError('required')">Email is required</p>
+					<p *ngIf="loginForm.controls.username.hasError('email')">Email format is not correct</p>
 				</div>
 			</div>
 			<div class="col col-xs-12">
-				<input type="submit" value="Log In" class="button button-primary" [disabled]="!loginForm.form.valid"/>
+				<input type="password" placeholder="Password" id="password" formControlName="password"/>
+				<div class="error error-top" *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.touched && loginForm.controls.password.dirty">
+					<p>Password is required</p>
+				</div>
+			</div>
+			<div class="col col-xs-12">
+				<input type="submit" value="Log In" class="button button-primary" [disabled]="!loginForm.valid"/>
 			</div>
 			<div class="col col-xs-12 text-center">
 				<p>New to Footbagent? <a [routerLink]="['/signup']">Sign Up</a></p>
