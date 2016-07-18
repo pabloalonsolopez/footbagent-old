@@ -2,43 +2,43 @@
 	<form novalidate autocomplete="off" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 		<div class="row">
 			<div class="col col-xs-12 text-center">
-				<a class="signup-logo icon-logo" [routerLink]="['']"></a>
+				<a class="logo logo--big icon-logo" [routerLink]="['']"></a>
 			</div>
 			<div class="col col-xs-12 text-center">
 				<h1 class="h1">Sign up and experience Footbagent today</h1>
 			</div>
 			<div class="col col-xs-12" *ngIf="error">
-				<div class="error">
+				<div class="message-box message-box--error">
 					<p>{{error.message}}</p>
 				</div>
 			</div>
 			<div class="col col-xs-12">
 				<input type="text" placeholder="First name" id="firstName" formControlName="firstName"/>
-				<div class="error error-top" *ngIf="!signupForm.controls.firstName.valid && signupForm.controls.firstName.touched && signupForm.controls.firstName.dirty">
+				<div class="message-box message-box--top message-box--error" *ngIf="!signupForm.controls.firstName.valid && signupForm.controls.firstName.touched && signupForm.controls.firstName.dirty">
 					<p>First name is required</p>
 				</div>
 			</div>
 			<div class="col col-xs-12">
 				<input type="text" placeholder="Last name" id="lastName" formControlName="lastName"/>
-				<div class="error error-top" *ngIf="!signupForm.controls.lastName.valid && signupForm.controls.lastName.touched && signupForm.controls.lastName.dirty">
+				<div class="message-box message-box--top message-box--error" *ngIf="!signupForm.controls.lastName.valid && signupForm.controls.lastName.touched && signupForm.controls.lastName.dirty">
 					<p>Last name is required</p>
 				</div>
 			</div>
 			<div class="col col-xs-12">
 				<input type="email" placeholder="Email" id="username" formControlName="username"/>
-				<div class="error error-top" *ngIf="!signupForm.controls.username.valid && signupForm.controls.username.touched && signupForm.controls.username.dirty">
+				<div class="message-box message-box--top message-box--error" *ngIf="!signupForm.controls.username.valid && signupForm.controls.username.touched && signupForm.controls.username.dirty">
 					<p *ngIf="signupForm.controls.username.hasError('required')">Email is required</p>
-					<p *ngIf="signupForm.controls.username.hasError('email')">Email format is not correct</p>
+					<p *ngIf="signupForm.controls.username.hasError('emailInvalid')">Email format is not correct</p>
 				</div>
 			</div>
 			<div class="col col-xs-12">
 				<input type="password" placeholder="Password" id="password" formControlName="password"/>
-				<div class="error error-top" *ngIf="!signupForm.controls.password.valid && signupForm.controls.password.touched && signupForm.controls.password.dirty">
+				<div class="message-box message-box--top message-box--error" *ngIf="!signupForm.controls.password.valid && signupForm.controls.password.touched && signupForm.controls.password.dirty">
 					<p>Password is required</p>
 				</div>
 			</div>
 			<div class="col col-xs-12">
-				<input type="submit" value="Create Account" class="button button-primary" [disabled]="!signupForm.valid"/>
+				<input type="submit" value="Create Account" class="button button--primary" [disabled]="!signupForm.valid"/>
 			</div>
 			<div class="col col-xs-12 text-center">
 				<p>Signing up signifies that you have read and agree to the <a [routerLink]="['/terms']">Terms of Service</a> and <a [routerLink]="['/privacy']">Privacy Policy</a>.</p>

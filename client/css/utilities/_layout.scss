@@ -1,20 +1,3 @@
-.global-area {
-  flex: 0 0 auto;
-  border-bottom: 1px solid $seashell;
-  padding: 5px 0;
-}
-
-.main-area {
-  flex: 1 0 auto;
-  padding: 25px 0;
-}
-
-.footer-area {
-  flex: 0 0 auto;
-  border-top: 1px solid $seashell;
-  padding: 5px 0;
-}
-
 login, signup, main {
   display: flex;
   flex-direction: column;

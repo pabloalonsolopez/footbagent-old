@@ -1,0 +1,10 @@
+.nav-inline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  li {
+	&:not(:last-child) {
+      margin-right: $spacer-md;
+  	}
+  }	
+}

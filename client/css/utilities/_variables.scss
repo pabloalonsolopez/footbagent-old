@@ -1,21 +1,55 @@
-//Colors
+//Colors Palette
 $white:										#FFFFFF !default;
-$seashell:									#F1F1F1 !default;
-$mercury:									#E6E6E6 !default;
-$dovegray:									#666666 !default;
-$mineshaft:									#333333 !default;
-$mariner:									#2279DA !default;
+$porcelain:									#F1F3F4 !default;
+$gallery:									#ECEBEB !default;
+$graychateau:								#ACB0B2 !default;
+$oslogray:									#949799 !default;
+$trout:										#505D62 !default;
+$easternblue:								#168CC4 !default;
+$valencia:									#D64242 !default;
 
-//Typography
-$base-line-height:							1.4 !default;
-$base-font-weight:							400 !default;
-$base-font-size:							1.4rem !default;
+//Colors
+$color-brand:								$easternblue !default;
+$color-brand-alt:							saturate($color-brand, 20%) !default;
 
-//Spacing
-$spacers:									(md: 22px) !default;
+//Media Queries
+$breakpoints:								(xs: 0, sm: 544px, md: 768px, lg: 992px, xl: 1200px) !default;
 
 //Grid
-$mq-sm:										'(min-width: 768px)' !default;
-$container-max-width:						1240px !default;
-$container-slim-max-width:					400px !default;
-$grid-gutter:								22px !default;
+$container-max-widths:						(sm: 576px, md: 720px, lg: 940px, xl: 1140px) !default;
+$grid-columns:								12 !default;
+$grid-gutter:								20px !default;
+
+//Spacing
+$spacer-xs:									5px !default;
+$spacer-sm:									10px !default;
+$spacer-md:									20px !default;
+$spacer-lg:									30px !default;
+$spacer-xl:									40px !default;
+$spacers:									(0: 0, xs: $spacer-xs, sm: $spacer-sm, md: $spacer-md, lg: $spacer-lg, xl: $spacer-xl) !default;
+
+//Border Radius
+$border-radius-md:							4px !default;
+
+//Line Heights
+$line-height-md:							1.4 !default;
+
+//Font Families
+$font-family-primary:						'PF Beau Sans Pro', 'Helvetica Neue', Arial, sans-serif !default;
+
+//Font Weights
+$font-weight-thin:							100 !default;
+$font-weight-light:							300 !default;
+$font-weight-regular:						400 !default;
+$font-weight-semibold:						600 !default;
+$font-weight-bold:							700 !default;
+
+//Font Sizes
+$font-size-sm:								1.3rem !default;
+$font-size-md:								1.4rem !default;
+
+//Icon Sizes
+$icon-size-lg:								3rem !default;
+
+//Transitions
+$linear:									all 100ms linear !default;

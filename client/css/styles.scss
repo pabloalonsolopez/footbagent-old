@@ -1,19 +1,21 @@
 @import 'utilities/normalize';
+@import 'utilities/reset';
+
 @import 'utilities/fonts';
 @import 'utilities/icons';
+
 @import 'utilities/variables';
-@import 'utilities/spacing';
+
+@import 'utilities/media-queries';
 @import 'utilities/grid';
-@import 'utilities/layout';
+@import 'utilities/spacing';
+
 @import 'utilities/typography';
-@import 'utilities/utils';
 
-@import 'components/list';
-@import 'components/form';
+@import 'components/main';
+@import 'components/header';
+@import 'components/content';
+@import 'components/footer';
+@import 'components/logo';
+@import 'components/nav';
 @import 'components/button';
-
-@import 'components/logos';
-@import 'components/global-link';
-@import 'components/footer-link';
-@import 'components/footer-text';
-@import 'components/dashboard-menu';

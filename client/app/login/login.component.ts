@@ -5,8 +5,6 @@ import { Router, ROUTER_DIRECTIVES } from '@angular/router'
 import { ValidationService } from '../shared/validation.service'
 import { AuthService } from '../shared/auth.service'
 
-import { User } from '../users/user'
-
 @Component({
 	selector: 'login',
 	templateUrl: './app/login/login.component.html',
@@ -16,7 +14,6 @@ import { User } from '../users/user'
 export class LoginComponent implements OnInit {
 	submitted: boolean = true
 	loginForm: FormGroup
-	user: User
 	error: any
 
 	constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {}
@@ -25,9 +22,8 @@ export class LoginComponent implements OnInit {
 		this.buildForm()
 	}
 
-	onSubmit() {
-		this.user = this.loginForm.value
-		this.authService.login(this.user)
+	onSubmit() { 
+		this.authService.login(this.loginForm.value)
             .subscribe(
             	response => this.router.navigate(['/dashboard']),
             	error => {
@@ -48,5 +44,4 @@ export class LoginComponent implements OnInit {
         this.submitted = false
 		setTimeout(() => this.submitted = true, 0)
 	}
-
 }

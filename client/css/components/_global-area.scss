@@ -1,0 +1,8 @@
+.global-area {
+  flex: 0 0 auto;
+  border-bottom: 1px solid $color-border;
+  padding: $spacing-md/4 0;
+  a {
+  	text-decoration: none;
+  }
+}

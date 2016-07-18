@@ -1,0 +1,47 @@
+.message-box {
+  position: relative;
+  border: 1px solid $message-box-border-color;
+  border-radius: 4px;
+  background-color: $message-box-bg-color;
+  padding: 7px 15px;
+  text-align: center;
+  font-size: 1.3rem;
+  color: $message-box-color;
+  &:before {
+    position: absolute;
+    left: 10px;
+    border: 7px solid transparent;
+    content:'';
+  }
+  &.message-box--error {
+    border-color: $message-box-border-color--error;
+    background-color: $message-box-bg-color--error;
+    color: $message-box-color--error;
+  }
+  &.message-box--top {
+    margin-top: 14px;
+    &:before {
+      top: -7px;
+      border-top-width: 0;
+      border-bottom-color: $message-box-border-color;
+    }
+    &.message-box--error {
+      &:before {
+        border-bottom-color: $message-box-border-color--error;
+      }
+    }
+  }
+  &.message-box--bottom {
+    margin-bottom: 14px;
+    &:before {
+      bottom: -7px;
+      border-bottom-width: 0;
+      border-top-color: $message-box-border-color;
+    }
+    &.message-box--error {
+      &:before {
+        border-top-color: $message-box-border-color--error;
+      }
+    }
+  }
+}

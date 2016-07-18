@@ -1,44 +1,56 @@
-<div class="global-area">
-	<div class="container">
-		<div class="row row-xs-middle row-xs-justified">
-			<div class="col col-xs-shrink">
-				<ul class="list-inline">
-					<li><a [routerLink]="['']" class="global-logo icon-logo"></a></li>
-				</ul>
-			</div>
-			<div class="col col-xs-shrink">
-				<ul class="list-inline">
-					<li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['/login']" class="global-link">Log in</a></li>
-					<li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['/signup']" class="button button-primary">Sign up</a></li>
-					<li *ngIf="authService.isAuthenticated()"><a [routerLink]="['/dashboard']" class="button">Dashboard</a></li>
-					<li *ngIf="authService.isAuthenticated()"><a class="global-link">{{authService.profile.username}}</a></li>
-					<li *ngIf="authService.isAuthenticated()"><a class="global-link" (click)="authService.logout()">Logout</a></li>
-				</ul>
+<div class="main">
+	<div class="header">
+		<div class="container">
+			<div class="row row-xs-middle row-xs-justified">
+				<div class="col-xs-shrink">
+					<a [routerLink]="['']" class="logo icon-logo"></a>
+				</div>
+				<div class="col-xs-shrink">
+					<ul class="nav nav-inline">
+						<li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['/login']">Log in</a></li>
+						<li *ngIf="!authService.isAuthenticated()"><a class="button button-primary" [routerLink]="['/signup']">Sign up</a></li>
+						<li *ngIf="authService.isAuthenticated()"><a class="button" [routerLink]="['/dashboard']">Dashboard</a></li>
+						<li *ngIf="authService.isAuthenticated()">
+							<div class="dropdown dropdown-user" dropdown>
+								<a class="avatar" dropdown-open></a>
+								<div class="dropdown-menu">
+									<div>
+										<p>{{authService.profile.firstName}} {{authService.profile.lastName}}</p>
+										<p>{{authService.profile.username}}
+									</div>
+									<ul>
+										<li><a>Account settings</a></li>
+										<li><a>Notifications</a></li>
+										<li><a (click)="authService.signout()">Sign out</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="main-area">
-	<div class="container">
+	<div class="content">
 		<router-outlet></router-outlet>
 	</div>
-</div>
-<div class="footer-area">
-	<div class="container">
-		<div class="row row-xs-justified">
-			<div class="col col-xs-shrink">
-				<ul class="footer-list list-inline">
-					<li><a [routerLink]="['/home']" class="footer-link">footbagent.com</a></li>
-					<li><a [routerLink]="['/support']" class="footer-link">Support</a></li>
-				</ul>
-			</div>
-			<div class="col col-xs-shrink">
-				<ul class="footer-list list-inline">
-					<li><a [routerLink]="['/terms']" class="footer-link">Terms of Service</a></li>
-					<li><a [routerLink]="['/privacy']" class="footer-link">Privacy Policy</a></li>
-					<li><a [routerLink]="['/cookies']" class="footer-link">Cookies</a></li>
-					<li><p class="footer-text">&copy; 2016 footbagent.com</p></li>
-				</ul>
+	<div class="footer">
+		<div class="container">
+			<div class="row row-xs-middle row-xs-justified">
+				<div class="col-xs-shrink">
+					<ul class="nav nav-inline">
+						<li><a [routerLink]="['/home']">footbagent.com</a></li>
+						<li><a [routerLink]="['/support']">Support</a></li>
+					</ul>
+				</div>
+				<div class="col-xs-shrink">
+					<ul class="nav nav-inline">
+						<li><a [routerLink]="['/terms']">Terms of Service</a></li>
+						<li><a [routerLink]="['/privacy']">Privacy Policy</a></li>
+						<li><a [routerLink]="['/cookies']">Cookies</a></li>
+						<li><p>&copy; 2016 footbagent.com</p></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

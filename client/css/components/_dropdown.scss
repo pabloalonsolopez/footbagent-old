@@ -1,0 +1,25 @@
+.dropdown {
+  position: relative;
+  &.open {
+  	.dropdown-menu {
+  		pointer-events: auto;
+  		opacity: 1;
+  	}
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  border-radius: 4px;
+  background-color: $white;
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.dropdown-user {
+  .dropdown-menu {
+  	padding: 22px;
+  }
+}

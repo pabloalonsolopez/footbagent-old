@@ -4,14 +4,13 @@ import { Router } from '@angular/router'
 import { Observable } from 'rxjs/Rx'
 import { tokenNotExpired, JwtHelper } from 'angular2-jwt'
 
-import { User } from '../users/user'
-
 @Injectable()
 export class AuthService {
 
   private authUrl = 'api/auth'
   
   private jwtHelper: JwtHelper = new JwtHelper()
+  
   private profile: any
 
   constructor(private http: Http, private router: Router) {
@@ -21,8 +20,8 @@ export class AuthService {
     }
   }
 
-  signup(user: User): Observable<any> {
-    let body = JSON.stringify(user)
+  signup(data: any): Observable<any> {
+    let body = JSON.stringify(data)
     let headers = new Headers({ 'Content-Type': 'application/json' })
     let options = new RequestOptions({ headers: headers })
     let url = `${this.authUrl}/signup`
@@ -36,8 +35,8 @@ export class AuthService {
       .catch(this.handleError)
   }
 
-  login(user: User): Observable<any> {
-    let body = JSON.stringify(user)
+  login(data: any): Observable<any> {
+    let body = JSON.stringify(data)
     let headers = new Headers({ 'Content-Type': 'application/json' })
     let options = new RequestOptions({ headers: headers })
     let url = `${this.authUrl}/login`
@@ -55,10 +54,10 @@ export class AuthService {
     return tokenNotExpired()
   }
 
-  logout() {
+  signout() {
+    this.router.navigate(['/login'])
     localStorage.removeItem("id_token")
     this.profile = null
-    this.router.navigate(['/login'])
   }
 
   private handleError(error: any) {

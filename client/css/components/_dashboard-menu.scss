@@ -7,14 +7,14 @@
 	a {
 		display: flex;
 		align-items: center;
-		color: $dovegray;
+		color: $color-border;
 		transition: all 120ms linear;
 		&:hover {
 		  text-decoration: none;
-		  color: $mineshaft;
+		  color: $easternblue;
 		}
 		&.is-active {
-		  color: $mariner;
+		  color: $easternblue;
 		}
 		span {
 			margin-right: 15px;

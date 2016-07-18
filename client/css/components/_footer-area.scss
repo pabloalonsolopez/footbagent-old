@@ -1,0 +1,14 @@
+.footer-area {
+  flex: 0 0 auto;
+  border-top: 1px solid $color-border;
+  padding: $spacing-md/4 0;
+  font-size: 1.3rem;
+  color: $color-text-muted;
+  a {
+  	text-decoration: none;
+  	color: $color-text-silenced;
+  	&:hover {
+  		color: $color-link-hover;
+  	}
+  }
+}
