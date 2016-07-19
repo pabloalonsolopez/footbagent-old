@@ -1,13 +1,13 @@
 <div class="main">
 	<div class="header">
-		<div class="container">
-			<div class="row row-xs-middle row-xs-justified">
-				<div class="col-xs-shrink">
+		<div class="container-fluid">
+			<div class="header-content">
+				<div class="header-primary">
 					<a [routerLink]="['']" class="logo icon-logo"></a>
 				</div>
-				<div class="col-xs-shrink">
+				<div class="header-secondary">
 					<ul class="nav nav-inline">
-						<li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['/login']">Log in</a></li>
+						<li *ngIf="!authService.isAuthenticated()"><a class="button" [routerLink]="['/login']">Log in</a></li>
 						<li *ngIf="!authService.isAuthenticated()"><a class="button button-primary" [routerLink]="['/signup']">Sign up</a></li>
 						<li *ngIf="authService.isAuthenticated()"><a class="button" [routerLink]="['/dashboard']">Dashboard</a></li>
 						<li *ngIf="authService.isAuthenticated()">
@@ -35,15 +35,15 @@
 		<router-outlet></router-outlet>
 	</div>
 	<div class="footer">
-		<div class="container">
-			<div class="row row-xs-middle row-xs-justified">
-				<div class="col-xs-shrink">
+		<div class="container-fluid">
+			<div class="footer-content">
+				<div class="footer-primary">
 					<ul class="nav nav-inline">
 						<li><a [routerLink]="['/home']">footbagent.com</a></li>
 						<li><a [routerLink]="['/support']">Support</a></li>
 					</ul>
 				</div>
-				<div class="col-xs-shrink">
+				<div class="footer-secondary">
 					<ul class="nav nav-inline">
 						<li><a [routerLink]="['/terms']">Terms of Service</a></li>
 						<li><a [routerLink]="['/privacy']">Privacy Policy</a></li>

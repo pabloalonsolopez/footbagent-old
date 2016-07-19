@@ -1,13 +1,49 @@
 .footer {
   flex: 0 0 auto;
   border-top: 1px solid $porcelain;
-  padding: $spacer-sm 0;
+  padding-top: $spacer-sm;
+  padding-bottom: $spacer-sm;
   font-size: $font-size-sm;
   color: $oslogray;
   a {
-  	color: $graychateau;
+  	color: $oslogray;
   	&:hover {
-  	  color: $color-brand;
-  	}
+  	  color: $trout;
+  	  text-decoration: none;
+    }
+  }
+}
+
+.footer-content {
+  @include make-row();
+  @include make-row-middle(xs);
+  @include make-row-justified(xs);
+}
+
+.footer-primary {
+  @include make-col();
+  @include make-col-span(xs, 12);
+  @include make-col-shrink(md);
+  .nav {
+    padding-bottom: $spacer-sm;
+    justify-content: center;
+    @include media-up(md) {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.footer-secondary {
+  @include make-col();
+  @include make-col-span(xs, 12);
+  @include make-col-shrink(md);
+  .nav {
+    justify-content: center;
+    border-top: 1px solid $porcelain;
+    padding-top: $spacer-sm;
+    @include media-up(md) {
+      border-top: 0;
+      padding-top: 0;
+    }
   }
 }

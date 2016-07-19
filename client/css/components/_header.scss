@@ -3,3 +3,19 @@
   border-bottom: 1px solid $porcelain;
   padding: $spacer-sm 0;
 }
+
+.header-content {
+  @include make-row();
+  @include make-row-middle(xs);
+  @include make-row-justified(xs);
+}
+
+.header-primary {
+  @include make-col();
+  @include make-col-shrink(xs);
+}
+
+.header-secondary {
+  @include make-col();
+  @include make-col-shrink(xs);
+}
