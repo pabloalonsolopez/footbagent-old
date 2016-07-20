@@ -1,7 +1,12 @@
 .avatar {
 	display: flex;
-	width: 3rem;
-	height: 3rem;
-	border-radius: 50%;
-	background-color: $easternblue;
+	width: $icon-size-lg;
+	height: $icon-size-lg;
+	border-radius: $border-radius-circle;
+	background-color: $gallery;
+}
+
+.avatar-lg {
+	width: $icon-size-xl;
+	height: $icon-size-xl;
 }

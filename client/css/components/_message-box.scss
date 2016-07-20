@@ -1,47 +1,53 @@
 .message-box {
   position: relative;
-  border: 1px solid $message-box-border-color;
-  border-radius: 4px;
-  background-color: $message-box-bg-color;
-  padding: 7px 15px;
+  border: 1px solid $color-brand;
+  border-radius: $border-radius-md;
+  background-color: $color-brand;
+  padding: $spacer-xs $spacer-md;
   text-align: center;
-  font-size: 1.3rem;
-  color: $message-box-color;
+  font-size: $font-size-sm;
+  color: $white;
+}
+
+.message-box-error {
+  border-color: $valencia;
+  background-color: $valencia;
+  color: $white;
+}
+
+.message-box-top, .message-box-bottom {
   &:before {
     position: absolute;
     left: 10px;
     border: 7px solid transparent;
     content:'';
   }
-  &.message-box--error {
-    border-color: $message-box-border-color--error;
-    background-color: $message-box-bg-color--error;
-    color: $message-box-color--error;
+}
+
+.message-box-top {
+  margin-top: 14px;
+  &:before {
+    top: -7px;
+    border-top-width: 0;
+    border-bottom-color: $color-brand;
   }
-  &.message-box--top {
-    margin-top: 14px;
+  &.message-box-error {
     &:before {
-      top: -7px;
-      border-top-width: 0;
-      border-bottom-color: $message-box-border-color;
-    }
-    &.message-box--error {
-      &:before {
-        border-bottom-color: $message-box-border-color--error;
-      }
+      border-bottom-color: $valencia;
     }
   }
-  &.message-box--bottom {
-    margin-bottom: 14px;
+}
+
+.message-box-bottom {
+  margin-bottom: 14px;
+  &:before {
+    bottom: -7px;
+    border-bottom-width: 0;
+    border-top-color: $color-brand;
+  }
+  &.message-box-error {
     &:before {
-      bottom: -7px;
-      border-bottom-width: 0;
-      border-top-color: $message-box-border-color;
-    }
-    &.message-box--error {
-      &:before {
-        border-top-color: $message-box-border-color--error;
-      }
+      border-top-color: $valencia;
     }
   }
 }

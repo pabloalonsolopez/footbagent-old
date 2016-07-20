@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  li {
+  & > li {
 	&:not(:last-child) {
       margin-right: $spacer-md;
   	}

@@ -11,11 +11,11 @@
 }
 
 .header-primary {
-  @include make-col();
+  @include make-col(xs);
   @include make-col-shrink(xs);
 }
 
 .header-secondary {
-  @include make-col();
+  @include make-col(xs);
   @include make-col-shrink(xs);
 }

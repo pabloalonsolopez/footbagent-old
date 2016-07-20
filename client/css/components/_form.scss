@@ -1,16 +1,25 @@
+.container-form {
+  @include make-container();
+  @include make-container-max-widths((xs: 400px));
+}
+
+.form-group + .form-group {
+  margin-top: $spacer-md;
+}
+
 input, textarea {
   width: 100%;
-  border: 1px solid $input-border-color;
-  border-radius: 4px;
-  padding: 7px 15px;
-  background-color: $input-bg-color;
-  color: $input-color;
+  border: 1px solid $gallery;
+  border-radius: $border-radius-md;
+  padding: $spacer-xs $spacer-sm;
+  background-color: $white;
+  color: $trout;
   outline: none;
   &::-webkit-input-placeholder {
-    color: $input-placeholder-color;
+    color: $graychateau;
   }
   &:focus {
-    border-color: $input-border-color--focus;
+    border-color: $color-brand;
   }
   &.ng-invalid.ng-touched.ng-dirty {
     border-color: $valencia;

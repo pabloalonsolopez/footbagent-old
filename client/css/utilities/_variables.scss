@@ -1,6 +1,7 @@
 //Colors Palette
 $white:										#FFFFFF !default;
 $porcelain:									#F1F3F4 !default;
+$porcelain-light:							lighten($porcelain, 2%) !default;
 $gallery:									#ECEBEB !default;
 $graychateau:								#ACB0B2 !default;
 $oslogray:									#949799 !default;
@@ -13,15 +14,15 @@ $color-brand:								$easternblue !default;
 $color-brand-alt:							saturate($color-brand, 20%) !default;
 
 //Media Queries
-$breakpoints:								(xs: 0, sm: 544px, md: 768px, lg: 992px, xl: 1200px) !default;
+$grid-breakpoints:							(xs: 0, sm: 544px, md: 768px, lg: 992px, xl: 1200px) !default;
 
 //Grid
 $container-max-widths:						(sm: 576px, md: 720px, lg: 940px, xl: 1140px) !default;
 $grid-columns:								12 !default;
-$grid-gutter:								20px !default;
+$grid-gutter-width:							40px !default;
 
 //Spacing
-$spacer-xs:									5px !default;
+$spacer-xs:									7px !default;
 $spacer-sm:									10px !default;
 $spacer-md:									20px !default;
 $spacer-lg:									30px !default;
@@ -30,8 +31,10 @@ $spacers:									(0: 0, xs: $spacer-xs, sm: $spacer-sm, md: $spacer-md, lg: $sp
 
 //Border Radius
 $border-radius-md:							4px !default;
+$border-radius-circle:						50% !default;
 
 //Line Heights
+$line-height-sm:							1.2 !default;
 $line-height-md:							1.4 !default;
 
 //Font Families
@@ -47,9 +50,11 @@ $font-weight-bold:							700 !default;
 //Font Sizes
 $font-size-sm:								1.3rem !default;
 $font-size-md:								1.4rem !default;
+$font-size-lg:								3rem !default;
 
 //Icon Sizes
 $icon-size-lg:								3rem !default;
+$icon-size-xl:								6rem !default;
 
 //Transitions
 $linear:									all 100ms linear !default;

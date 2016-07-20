@@ -1,4 +1,7 @@
+/* Container */
+
 @mixin make-container($gutter: $grid-gutter-width) {
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: ($gutter / 2);
@@ -13,14 +16,6 @@
   }
 }
 
-@mixin make-row($gutter: $grid-gutter-width) {
-  display: flex;
-  flex: 0 1 auto;
-  flex-wrap: wrap;
-  margin-left: ($gutter / -2);
-  margin-right: ($gutter / -2);
-}
-
 .container {
   @include make-container();
   @include make-container-max-widths();
@@ -30,19 +25,19 @@
   @include make-container();
 }
 
-.row {
-  @include make-row();
+/* Row */
+
+@mixin make-row($gutter: $grid-gutter-width) {
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  margin-left: ($gutter / -2);
+  margin-right: ($gutter / -2);
 }
 
 @mixin make-row-reverse($breakpoint) {
   @include media-up($breakpoint) {
     flex-direction: row-reverse;
-  }
-}
-
-@each $breakpoint in map-keys($breakpoints) {
-  @include media-up($breakpoint) {
-    .row-#{$breakpoint}-reverse { flex-direction: row-reverse; }
   }
 }
 
@@ -61,14 +56,6 @@
 @mixin make-row-bottom($breakpoint) {
   @include media-up($breakpoint) {
     align-items: flex-end;
-  }
-}
-
-@each $breakpoint in map-keys($breakpoints) {
-  @include media-up($breakpoint) {
-    .row-#{$breakpoint}-top { align-items: flex-start; }
-    .row-#{$breakpoint}-middle { align-items: center; }
-    .row-#{$breakpoint}-bottom { align-items: flex-end; }
   }
 }
 
@@ -102,94 +89,153 @@
   }
 }
 
-@each $breakpoint in map-keys($breakpoints) {
-  @include media-up($breakpoint) {
-    .row-#{$breakpoint}-left { justify-content: flex-start; }
-    .row-#{$breakpoint}-center { justify-content: center; }
-    .row-#{$breakpoint}-right { justify-content: flex-end; }
-    .row-#{$breakpoint}-justified { justify-content: space-between; }
-    .row-#{$breakpoint}-spaced { justify-content: space-around; }
-  }
+.row {
+  @include make-row();
 }
 
-@mixin make-col($gutter: $grid-gutter-width) {
-  max-width: 100%;
-  min-height: 1px;
-  padding-left: ($gutter / 2);
-  padding-right: ($gutter / 2);
-}
+@mixin make-grid-rows($breakpoints: $grid-breakpoints) {
+  @each $breakpoint in map-keys($breakpoints) {
+    @include media-up($breakpoint) {
+      .row-#{$breakpoint}-reverse { flex-direction: row-reverse; }
 
-.col {
-  @include make-col();
-}
+      .row-#{$breakpoint}-top { align-items: flex-start; }
+      .row-#{$breakpoint}-middle { align-items: center; }
+      .row-#{$breakpoint}-bottom { align-items: flex-end; }
 
-@each $breakpoint in map-keys($breakpoints) {
-  @include media-up($breakpoint) {
-    .col-#{$breakpoint} { flex: 1 0 0; }
-  }
-}
-
-@mixin make-col-span($breakpoint, $columns) {
-  @include media-up($breakpoint) {
-    flex: 0 0 percentage($columns / $grid-columns);
-  }
-}
-
-@each $breakpoint in map-keys($breakpoints) {
-  @include media-up($breakpoint) {
-    @for $i from 0 through $grid-columns {
-      .col-#{$breakpoint}-#{$i} { flex: 0 0 percentage($i / $grid-columns); }
+      .row-#{$breakpoint}-left { justify-content: flex-start; }
+      .row-#{$breakpoint}-center { justify-content: center; }
+      .row-#{$breakpoint}-right { justify-content: flex-end; }
+      .row-#{$breakpoint}-justified { justify-content: space-between; }
+      .row-#{$breakpoint}-spaced { justify-content: space-around; }
     }
   }
 }
 
-@mixin make-col-shrink($breakpoint) {
+@include make-grid-rows();
+
+/* Col */
+
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint in map-keys($breakpoints) {
+    @include media-up($breakpoint) {
+      .col-#{$breakpoint} {
+        max-width: 100%;
+        min-height: 1px;
+        padding-left: ($gutter / 2);
+        padding-right: ($gutter / 2);
+        flex: 1 0 0;
+      }
+      
+      @for $i from 0 through $columns {
+        .col-#{$breakpoint}-#{$i} {
+          max-width: 100%;
+          min-height: 1px;
+          padding-left: ($gutter / 2);
+          padding-right: ($gutter / 2);
+          flex: 0 0 percentage($i / $columns);
+        }
+      }
+      
+      .col-#{$breakpoint}-shrink {
+        max-width: 100%;
+        min-height: 1px;
+        padding-left: ($gutter / 2);
+        padding-right: ($gutter / 2);
+        flex: 0 0 auto;
+      }
+
+      @for $i from 0 through $columns {
+        .col-#{$breakpoint}-push-#{$i} { left: if($i > 0, percentage($i / $columns), auto); }
+        .col-#{$breakpoint}-pull-#{$i} { right: if($i > 0, percentage($i / $columns), auto); }
+        .col-#{$breakpoint}-offset-#{$i} { margin-left: percentage($i / $columns); }
+      }
+
+      .col-#{$breakpoint}-top { align-self: flex-start; }
+      .col-#{$breakpoint}-middle { align-self: center; }
+      .col-#{$breakpoint}-bottom { align-self: flex-end; }
+
+      .col-#{$breakpoint}-first { order: -1; }
+      .col-#{$breakpoint}-last { order: 1; }
+    }
+  }
+}
+
+@mixin make-col($breakpoint, $gutter: $grid-gutter-width) {
   @include media-up($breakpoint) {
+    max-width: 100%;
+    min-height: 1px;
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+    flex: 1 0 0;
+  }
+}
+
+@mixin make-col-span($breakpoint, $size, $gutter: $grid-gutter-width, $columns: $grid-columns) {
+  @include media-up($breakpoint) {
+    max-width: 100%;
+    min-height: 1px;
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
+    flex: 0 0 percentage($size / $columns);
+  }
+}
+
+@mixin make-col-shrink($breakpoint, $gutter: $grid-gutter-width) {
+  @include media-up($breakpoint) {
+    max-width: 100%;
+    min-height: 1px;
+    padding-left: ($gutter / 2);
+    padding-right: ($gutter / 2);
     flex: 0 0 auto;
   }
 }
 
-@each $breakpoint in map-keys($breakpoints) {
+@mixin make-col-push($breakpoint, $size, $columns: $grid-columns) {
   @include media-up($breakpoint) {
-    .col-#{$breakpoint}-shrink { flex: 0 0 auto; }
+    left: if($size > 0, percentage($size / $columns), auto);
   }
 }
 
-@each $breakpoint in map-keys($breakpoints) {
+@mixin make-col-pull($breakpoint, $size, $columns: $grid-columns) {
   @include media-up($breakpoint) {
-    @for $i from 0 through $grid-columns {
-      .col-#{$breakpoint}-push-#{$i} { left: if($i > 0, percentage($i / $grid-columns), auto); }
-    }
+    right: if($size > 0, percentage($size / $columns), auto); 
   }
 }
 
-@each $breakpoint in map-keys($breakpoints) {
+@mixin make-col-offset($breakpoint, $size, $columns: $grid-columns) {
   @include media-up($breakpoint) {
-    @for $i from 0 through $grid-columns {
-      .col-#{$breakpoint}-pull-#{$i} { right: if($i > 0, percentage($i / $grid-columns), auto); }
-    }
+    margin-left: percentage($size / $columns);
   }
 }
 
-@each $breakpoint in map-keys($breakpoints) {
+@mixin make-col-top($breakpoint) {
   @include media-up($breakpoint) {
-    @for $i from 0 through $grid-columns {
-      .col-#{$breakpoint}-offset-#{$i} { margin-left: percentage($i / $grid-columns); }
-    }
+    align-self: flex-start;
   }
 }
 
-@each $breakpoint in map-keys($breakpoints) {
+@mixin make-col-middle($breakpoint) {
   @include media-up($breakpoint) {
-    .col-#{$breakpoint}-top { align-self: flex-start; }
-    .col-#{$breakpoint}-middle { align-self: center; }
-    .col-#{$breakpoint}-bottom { align-self: flex-end; }
+    align-self: center;
   }
 }
 
-@each $breakpoint in map-keys($breakpoints) {
+@mixin make-col-bottom($breakpoint) {
   @include media-up($breakpoint) {
-    .col-#{$breakpoint}-first { order: -1; }
-    .col-#{$breakpoint}-last { order: 1; }
+    align-self: flex-end;
   }
 }
+
+@mixin make-col-first($breakpoint) {
+  @include media-up($breakpoint) {
+    order: -1;
+  }
+}
+
+@mixin make-col-last($breakpoint) {
+  @include media-up($breakpoint) {
+    order: 1;
+  }
+}
+
+@include make-grid-columns();

@@ -1,10 +1,10 @@
 @function breakpoint-next($name) {
-  $n: index(map-keys($breakpoints), $name);
+  $n: index(map-keys($grid-breakpoints), $name);
   @return if($n < length(map-keys($breakpoints)), nth(map-keys($breakpoints), $n + 1), null);
 }
 
 @function breakpoint-min($name) {
-  $min: map-get($breakpoints, $name);
+  $min: map-get($grid-breakpoints, $name);
   @return if($min != 0, $min, null);
 }
 

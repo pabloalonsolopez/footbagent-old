@@ -11,19 +11,20 @@
 						<li *ngIf="!authService.isAuthenticated()"><a class="button button-primary" [routerLink]="['/signup']">Sign up</a></li>
 						<li *ngIf="authService.isAuthenticated()"><a class="button" [routerLink]="['/dashboard']">Dashboard</a></li>
 						<li *ngIf="authService.isAuthenticated()">
-							<div class="dropdown dropdown-user" dropdown>
+							<div class="dropdown dropdown-session" dropdown>
 								<a class="avatar" dropdown-open></a>
-								<div class="dropdown-menu">
-									<div>
-										<p>{{authService.profile.firstName}} {{authService.profile.lastName}}</p>
-										<p>{{authService.profile.username}}
-									</div>
-									<ul>
-										<li><a>Account settings</a></li>
-										<li><a>Notifications</a></li>
-										<li><a (click)="authService.signout()">Sign out</a></li>
-									</ul>
-								</div>
+								<ul class="dropdown-menu">
+									<li>
+										<div class="dropdown-session-info">
+											<div class="avatar avatar-lg"></div>
+											<p>{{authService.profile.firstName}} {{authService.profile.lastName}}</p>
+											<p class="dropdown-session-info-username">{{authService.profile.username}}
+										</div>
+									<li>
+									<li><a>Account settings</a></li>
+									<li><a>Notifications</a></li>
+									<li><a (click)="authService.signout()">Sign out</a></li>
+								</ul>
 							</div>
 						</li>
 					</ul>

@@ -21,7 +21,6 @@
 }
 
 .footer-primary {
-  @include make-col();
   @include make-col-span(xs, 12);
   @include make-col-shrink(md);
   .nav {
@@ -34,7 +33,6 @@
 }
 
 .footer-secondary {
-  @include make-col();
   @include make-col-span(xs, 12);
   @include make-col-shrink(md);
   .nav {
