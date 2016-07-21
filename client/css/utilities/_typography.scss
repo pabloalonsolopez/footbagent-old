@@ -35,5 +35,23 @@ h1, h2, h3, h4, h5, h6 {
 .h1 {
   line-height: $line-height-sm;
   font-weight: $font-weight-semibold;
+  font-size: $font-size-xxxl;
+}
+
+.h2 {
+  line-height: $line-height-sm;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-xxl;
+}
+
+.h3 {
+  line-height: $line-height-sm;
+  font-weight: $font-weight-semibold;
+  font-size: $font-size-xl;
+}
+
+.h4 {
+  line-height: $line-height-sm;
+  font-weight: $font-weight-semibold;
   font-size: $font-size-lg;
 }

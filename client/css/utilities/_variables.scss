@@ -50,7 +50,10 @@ $font-weight-bold:							700 !default;
 //Font Sizes
 $font-size-sm:								1.3rem !default;
 $font-size-md:								1.4rem !default;
-$font-size-lg:								3rem !default;
+$font-size-lg:								2rem !default;
+$font-size-xl:								3rem !default;
+$font-size-xxl:								4rem !default;
+$font-size-xxxl:							5rem !default;
 
 //Icon Sizes
 $icon-size-lg:								3.1rem !default;
@@ -58,7 +61,7 @@ $icon-size-xl:								6rem !default;
 
 //Transitions
 $linear:									all 100ms linear !default;
-$rebound:										all .3s cubic-bezier(.155,1.105,.295,1.12), opacity 200ms linear;
+$rebound:									all .3s cubic-bezier(.155,1.105,.295,1.12), opacity 200ms linear;
 
 //Box Shadows
-$shadow1:									0 2px 5px rgba(0, 0, 0, .15), 0 0 1px rgba(0, 0, 0, .2);
+$elevation-shadow-1:						0 2px 5px rgba(0, 0, 0, .15), 0 0 1px rgba(0, 0, 0, .2);
