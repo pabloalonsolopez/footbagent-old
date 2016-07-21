@@ -9,17 +9,17 @@
 
 input, textarea {
   width: 100%;
-  border: 1px solid $gallery;
+  border: $border-thin solid $athensgray;
   border-radius: $border-radius-md;
   padding: $spacer-xs $spacer-sm;
   background-color: $white;
-  color: $trout;
+  color: $charade;
   outline: none;
   &::-webkit-input-placeholder {
-    color: $graychateau;
+    color: $palesky;
   }
   &:focus {
-    border-color: $color-brand;
+    border-color: $dodgerblue;
   }
   &.ng-invalid.ng-touched.ng-dirty {
     border-color: $valencia;

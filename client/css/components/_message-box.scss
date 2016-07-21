@@ -1,21 +1,21 @@
 .message-box {
   position: relative;
-  border: 1px solid $color-brand;
+  border: $border-thin solid $dodgerblue;
   border-radius: $border-radius-md;
-  background-color: $color-brand;
+  background-color: $dodgerblue;
   padding: $spacer-xs $spacer-md;
   text-align: center;
   font-size: $font-size-sm;
   color: $white;
 }
 
-.message-box-error {
+.message-box--error {
   border-color: $valencia;
   background-color: $valencia;
   color: $white;
 }
 
-.message-box-top, .message-box-bottom {
+.message-box--top, .message-box--bottom {
   &:before {
     position: absolute;
     left: 10px;
@@ -24,28 +24,28 @@
   }
 }
 
-.message-box-top {
+.message-box--top {
   margin-top: 14px;
   &:before {
     top: -7px;
     border-top-width: 0;
-    border-bottom-color: $color-brand;
+    border-bottom-color: $dodgerblue;
   }
-  &.message-box-error {
+  &.message-box--error {
     &:before {
       border-bottom-color: $valencia;
     }
   }
 }
 
-.message-box-bottom {
+.message-box--bottom {
   margin-bottom: 14px;
   &:before {
     bottom: -7px;
     border-bottom-width: 0;
-    border-top-color: $color-brand;
+    border-top-color: $dodgerblue;
   }
-  &.message-box-error {
+  &.message-box--error {
     &:before {
       border-top-color: $valencia;
     }

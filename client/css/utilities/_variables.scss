@@ -1,17 +1,14 @@
 //Colors Palette
 $white:										#FFFFFF !default;
-$porcelain:									#F1F3F4 !default;
-$porcelain-light:							lighten($porcelain, 2%) !default;
-$gallery:									#ECEBEB !default;
-$graychateau:								#ACB0B2 !default;
-$oslogray:									#949799 !default;
-$trout:										#505D62 !default;
-$easternblue:								#168CC4 !default;
+$whitelilac:								#ECEFF7 !default;
+$whitelilac-light:							lighten($whitelilac, 3%) !default;
+$athensgray:								#E6E8F0 !default;
+$regentgray:								#858F9F !default;
+$palesky:									#6A7586 !default;
+$charade:									#2A303A !default;
+$dodgerblue:								#4989F8 !default;
+$dodgerblue-light:							lighten($dodgerblue, 3%) !default;
 $valencia:									#D64242 !default;
-
-//Colors
-$color-brand:								$easternblue !default;
-$color-brand-alt:							saturate($color-brand, 20%) !default;
 
 //Media Queries
 $grid-breakpoints:							(xs: 0, sm: 544px, md: 768px, lg: 992px, xl: 1200px) !default;
@@ -29,8 +26,11 @@ $spacer-lg:									30px !default;
 $spacer-xl:									40px !default;
 $spacers:									(0: 0, xs: $spacer-xs, sm: $spacer-sm, md: $spacer-md, lg: $spacer-lg, xl: $spacer-xl) !default;
 
+//Border Width
+$border-thin:								1px !default;
+
 //Border Radius
-$border-radius-md:							4px !default;
+$border-radius-md:							3px !default;
 $border-radius-circle:						50% !default;
 
 //Line Heights
@@ -53,8 +53,12 @@ $font-size-md:								1.4rem !default;
 $font-size-lg:								3rem !default;
 
 //Icon Sizes
-$icon-size-lg:								3rem !default;
+$icon-size-lg:								3.1rem !default;
 $icon-size-xl:								6rem !default;
 
 //Transitions
 $linear:									all 100ms linear !default;
+$rebound:										all .3s cubic-bezier(.155,1.105,.295,1.12), opacity 200ms linear;
+
+//Box Shadows
+$shadow1:									0 2px 5px rgba(0, 0, 0, .15), 0 0 1px rgba(0, 0, 0, .2);

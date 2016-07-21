@@ -8,19 +8,20 @@ body {
   font-family: $font-family-primary;
   font-weight: $font-weight-regular;
   font-size: $font-size-md;
-  color: $trout;
+  color: $charade;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 a {
-  color: $color-brand;
+  color: $dodgerblue-light;
   text-decoration: none;
   outline: none;
   transition: $linear;
+  cursor: pointer;
   &:hover {
-    color: $color-brand-alt;
+    color: $dodgerblue;
     text-decoration: underline;
   }
 }
@@ -35,8 +36,4 @@ h1, h2, h3, h4, h5, h6 {
   line-height: $line-height-sm;
   font-weight: $font-weight-semibold;
   font-size: $font-size-lg;
-}
-
-.text-muted {
-  color: $graychateau;
 }

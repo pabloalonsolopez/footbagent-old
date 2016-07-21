@@ -1,14 +1,14 @@
 .footer {
   flex: 0 0 auto;
-  border-top: 1px solid $porcelain;
+  border-top: $border-thin solid $whitelilac;
   padding-top: $spacer-sm;
   padding-bottom: $spacer-sm;
   font-size: $font-size-sm;
-  color: $oslogray;
+  color: $palesky;
   a {
-  	color: $oslogray;
+  	color: $regentgray;
   	&:hover {
-  	  color: $trout;
+  	  color: $palesky;
   	  text-decoration: none;
     }
   }
@@ -37,7 +37,7 @@
   @include make-col-shrink(md);
   .nav {
     justify-content: center;
-    border-top: 1px solid $porcelain;
+    border-top: $border-thin solid $whitelilac;
     padding-top: $spacer-sm;
     @include media-up(md) {
       border-top: 0;

@@ -1,29 +1,33 @@
 .button {
-  border: 1px solid $color-brand;
+  border: $border-thin solid $dodgerblue-light;
   border-radius: $border-radius-md;
-  padding: $spacer-xs $spacer-md;
+  padding: $spacer-xs $spacer-sm;
   background-color: transparent;
   font-weight: $font-weight-semibold;
-  color: $color-brand;
+  color: $dodgerblue-light;
   cursor: pointer;
   transition: $linear;
   &:hover:enabled {
-  	border-color: $color-brand-alt;
+  	border-color: $dodgerblue;
   	text-decoration: none;
-  	color: $color-brand-alt;
+  	color: $dodgerblue;
   }
   &[disabled] {
-	opacity: 0.5;
-	cursor: default;
+	  opacity: 0.5;
+	  cursor: default;
   }
 }
 
-.button-primary {
-  background-color: $color-brand;
+.button--small {
+  font-size: $font-size-sm;
+}
+
+.button--primary {
+  background-color: $dodgerblue-light;
   color: $white;
   &:hover:enabled {
-  	border-color: $color-brand-alt;
-  	background-color: $color-brand-alt;
+  	border-color: $dodgerblue;
+  	background-color: $dodgerblue;
   	color: $white;
   }
 }

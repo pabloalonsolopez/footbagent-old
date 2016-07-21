@@ -6,19 +6,19 @@
 					<a [routerLink]="['']" class="logo icon-logo"></a>
 				</div>
 				<div class="header-secondary">
-					<ul class="nav nav-inline">
-						<li *ngIf="!authService.isAuthenticated()"><a class="button" [routerLink]="['/login']">Log in</a></li>
-						<li *ngIf="!authService.isAuthenticated()"><a class="button button-primary" [routerLink]="['/signup']">Sign up</a></li>
-						<li *ngIf="authService.isAuthenticated()"><a class="button" [routerLink]="['/dashboard']">Dashboard</a></li>
+					<ul class="nav nav--inline">
+						<li *ngIf="!authService.isAuthenticated()"><a class="button button--small" [routerLink]="['/login']">Log in</a></li>
+						<li *ngIf="!authService.isAuthenticated()"><a class="button button--small button--primary" [routerLink]="['/signup']">Sign up</a></li>
+						<li *ngIf="authService.isAuthenticated()"><a class="button button--small" [routerLink]="['/dashboard']">Dashboard</a></li>
 						<li *ngIf="authService.isAuthenticated()">
-							<div class="dropdown dropdown-session" dropdown>
+							<div class="dropdown dropdown--right dropdown--session" dropdown>
 								<a class="avatar" dropdown-open></a>
 								<ul class="dropdown-menu">
 									<li>
-										<div class="dropdown-session-info">
-											<div class="avatar avatar-lg"></div>
+										<div class="dropdown--session-info">
+											<div class="avatar avatar--lg"></div>
 											<p>{{authService.profile.firstName}} {{authService.profile.lastName}}</p>
-											<p class="dropdown-session-info-username">{{authService.profile.username}}
+											<p class="dropdown--session-info-username">{{authService.profile.username}}
 										</div>
 									<li>
 									<li><a>Account settings</a></li>
@@ -39,13 +39,13 @@
 		<div class="container-fluid">
 			<div class="footer-content">
 				<div class="footer-primary">
-					<ul class="nav nav-inline">
+					<ul class="nav nav--inline">
 						<li><a [routerLink]="['/home']">footbagent.com</a></li>
 						<li><a [routerLink]="['/support']">Support</a></li>
 					</ul>
 				</div>
 				<div class="footer-secondary">
-					<ul class="nav nav-inline">
+					<ul class="nav nav--inline">
 						<li><a [routerLink]="['/terms']">Terms of Service</a></li>
 						<li><a [routerLink]="['/privacy']">Privacy Policy</a></li>
 						<li><a [routerLink]="['/cookies']">Cookies</a></li>
