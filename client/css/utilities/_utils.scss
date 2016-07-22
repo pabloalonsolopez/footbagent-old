@@ -1,5 +1,19 @@
+//Text Alignment
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-up($breakpoint) {
+	.text-left-#{$breakpoint} { text-align: left; }
 	.text-center-#{$breakpoint} { text-align: center; }
+	.text-right-#{$breakpoint} { text-align: right; }
+	.text-justify-#{$breakpoint} { text-align: justify; }
+  }
+}
+
+//Visibility
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-up($breakpoint) {
+    .hidden-up-#{$breakpoint} { display: none !important; }
+  }
+  @include media-down($breakpoint) {
+    .hidden-down-#{$breakpoint} { display: none !important; }
   }
 }

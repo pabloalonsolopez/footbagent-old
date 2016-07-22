@@ -1,0 +1,53 @@
+.alert {
+  position: relative;
+  border: 1px solid $dodgerblue;
+  border-radius: 4px;
+  background-color: $dodgerblue;
+  padding: 6px 15px;
+  text-align: center;
+  font-size: 1.3rem;
+  color: $white;
+}
+
+.alert--error {
+  border-color: $valencia;
+  background-color: $valencia;
+  color: $white;
+}
+
+.alert--top, .alert--bottom {
+  &:before {
+    position: absolute;
+    left: 10px;
+    border: 7px solid transparent;
+    content:'';
+  }
+}
+
+.alert--top {
+  margin-top: 14px;
+  &:before {
+    top: -7px;
+    border-top-width: 0;
+    border-bottom-color: $dodgerblue;
+  }
+  &.alert--error {
+    &:before {
+      border-bottom-color: $valencia;
+    }
+  }
+}
+
+.alert--bottom {
+  margin-bottom: 14px;
+  &:before {
+    bottom: -7px;
+    border-bottom-width: 0;
+    border-top-color: $dodgerblue;
+  }
+  &.alert--error {
+    &:before {
+      border-top-color: $valencia;
+    }
+  }
+}

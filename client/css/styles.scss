@@ -13,27 +13,25 @@
 
 @import 'utilities/utils';
 
-@import 'components/main';
-@import 'components/header';
-@import 'components/content';
-@import 'components/top-nav';
-@import 'components/footer';
 @import 'components/logo';
 @import 'components/nav';
 @import 'components/button';
 @import 'components/form';
-@import 'components/message-box';
+@import 'components/alert';
 @import 'components/dropdown';
 @import 'components/avatar';
 @import 'components/table';
 
-.login, .signup {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
+@import 'layout/app';
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/top-nav';
+@import 'layout/footer';
 
-.resources-list {
-  padding: 30px 0;
-}
+@import 'pages/login';
+@import 'pages/signup';
+@import 'pages/home';
+@import 'pages/support';
+@import 'pages/terms';
+@import 'pages/privacy';
+@import 'pages/cookies';

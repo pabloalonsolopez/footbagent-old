@@ -1,20 +1,20 @@
-@function breakpoint-next($name) {
-  $n: index(map-keys($grid-breakpoints), $name);
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints) {
+  $n: index(map-keys($breakpoints), $name);
   @return if($n < length(map-keys($breakpoints)), nth(map-keys($breakpoints), $n + 1), null);
 }
 
-@function breakpoint-min($name) {
-  $min: map-get($grid-breakpoints, $name);
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
   @return if($min != 0, $min, null);
 }
 
-@function breakpoint-max($name) {
-  $next: breakpoint-next($name);
-  @return if($next, breakpoint-min($next) - 1px, null);
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
 }
 
-@mixin media-up($name) {
-  $min: breakpoint-min($name);
+@mixin media-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
   @if $min {
     @media (min-width: $min) {
       @content;
@@ -24,8 +24,8 @@
   }
 }
 
-@mixin media-down($name) {
-  $max: breakpoint-max($name);
+@mixin media-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
   @if $max {
     @media (max-width: $max) {
       @content;
@@ -35,17 +35,17 @@
   }
 }
 
-@mixin media-only($name) {
-  @include media-up($name) {
-    @include media-down($name) {
+@mixin media-only($name, $breakpoints: $grid-breakpoints) {
+  @include media-up($name, $breakpoints) {
+    @include media-down($name, $breakpoints) {
       @content;
     }
   }
 }
 
-@mixin media-between($lower, $upper) {
-  @include media-up($lower) {
-    @include media-down($upper) {
+@mixin media-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+  @include media-up($lower, $breakpoints) {
+    @include media-down($upper, $breakpoints) {
       @content;
     }
   }

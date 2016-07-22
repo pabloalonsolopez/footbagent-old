@@ -1,0 +1,21 @@
+fa-header {
+  flex: 0 0 auto;
+  border-bottom: 1px solid $whitelilac;
+  padding: 10px 0;
+}
+
+.header-content {
+  @include make-row();
+  @include make-row-middle(xs);
+  @include make-row-justified(xs);
+}
+
+.header-primary {
+  @include make-col(xs);
+  @include make-col-shrink(xs);
+}
+
+.header-secondary {
+  @include make-col(xs);
+  @include make-col-shrink(xs);
+}

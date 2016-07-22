@@ -6,7 +6,7 @@ import { ValidationService } from '../shared/validation.service'
 import { AuthService } from '../shared/auth.service'
 
 @Component({
-	selector: 'login',
+	selector: 'fa-login',
 	templateUrl: './app/login/login.component.html',
 	directives: [REACTIVE_FORM_DIRECTIVES, ROUTER_DIRECTIVES]
 })
