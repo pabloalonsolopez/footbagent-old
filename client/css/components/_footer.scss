@@ -1,9 +1,9 @@
 .footer {
   flex: 0 0 auto;
-  border-top: $border-thin solid $whitelilac;
-  padding-top: $spacer-sm;
-  padding-bottom: $spacer-sm;
-  font-size: $font-size-sm;
+  border-top: 1px solid $whitelilac;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.3rem;
   color: $palesky;
   a {
   	color: $regentgray;
@@ -24,7 +24,7 @@
   @include make-col-span(xs, 12);
   @include make-col-shrink(md);
   .nav {
-    padding-bottom: $spacer-sm;
+    padding-bottom: 10px;
     justify-content: center;
     @include media-up(md) {
       padding-bottom: 0;
@@ -37,8 +37,8 @@
   @include make-col-shrink(md);
   .nav {
     justify-content: center;
-    border-top: $border-thin solid $whitelilac;
-    padding-top: $spacer-sm;
+    border-top: 1px solid $whitelilac;
+    padding-top: 10px;
     @include media-up(md) {
       border-top: 0;
       padding-top: 0;

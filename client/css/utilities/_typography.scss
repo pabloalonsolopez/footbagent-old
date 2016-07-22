@@ -4,10 +4,10 @@ html {
 
 body {
   background-color: $white;
-  line-height: $line-height-md;
-  font-family: $font-family-primary;
-  font-weight: $font-weight-regular;
-  font-size: $font-size-md;
+  line-height: 1.4;
+  font-family: 'PF Beau Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
   color: $charade;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -18,7 +18,7 @@ a {
   color: $dodgerblue-light;
   text-decoration: none;
   outline: none;
-  transition: $linear;
+  transition: all 100ms linear;
   cursor: pointer;
   &:hover {
     color: $dodgerblue;
@@ -27,31 +27,13 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: $line-height-md;
-  font-weight: $font-weight-regular;
-  font-size: $font-size-md;
+  line-height: 1.4;
+  font-weight: 400;
+  font-size: 1.4rem;
 }
 
 .h1 {
-  line-height: $line-height-sm;
-  font-weight: $font-weight-semibold;
-  font-size: $font-size-xxxl;
-}
-
-.h2 {
-  line-height: $line-height-sm;
-  font-weight: $font-weight-semibold;
-  font-size: $font-size-xxl;
-}
-
-.h3 {
-  line-height: $line-height-sm;
-  font-weight: $font-weight-semibold;
-  font-size: $font-size-xl;
-}
-
-.h4 {
-  line-height: $line-height-sm;
-  font-weight: $font-weight-semibold;
-  font-size: $font-size-lg;
+  line-height: 1.2;
+  font-weight: 600;
+  font-size: 3rem;
 }

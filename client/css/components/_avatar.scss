@@ -1,12 +1,12 @@
 .avatar {
 	display: flex;
-	width: $icon-size-lg;
-	height: $icon-size-lg;
-	border-radius: $border-radius-circle;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
 	background-color: $athensgray;
 }
 
 .avatar--lg {
-	width: $icon-size-xl;
-	height: $icon-size-xl;
+	width: 6rem;
+	height: 6rem;
 }

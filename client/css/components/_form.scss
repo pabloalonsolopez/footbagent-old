@@ -3,15 +3,34 @@
   @include make-container-max-widths((xs: 400px));
 }
 
+.form-section {
+  padding: 40px 0;
+}
+
+.form-section + .form-section {
+  border-top: 1px solid $whitelilac;
+}
+
+.form-section-title {
+  font-size: 1.6rem;
+  color: $dodgerblue;
+}
+
+.form-section-description {
+  padding-top: 10px;
+  font-size: 1.3rem;
+  color: $palesky;
+}
+
 .form-group + .form-group {
-  margin-top: $spacer-md;
+  margin-top: 20px;
 }
 
 input, textarea {
   width: 100%;
-  border: $border-thin solid $athensgray;
-  border-radius: $border-radius-md;
-  padding: $spacer-xs $spacer-sm;
+  border: 1px solid $athensgray;
+  border-radius: 4px;
+  padding: 6px 15px;
   background-color: $white;
   color: $charade;
   outline: none;

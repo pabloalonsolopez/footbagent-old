@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   & > li {
 	&:not(:last-child) {
-      margin-right: $spacer-md;
+      margin-right: 20px;
   	}
   }	
 }

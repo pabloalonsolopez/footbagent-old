@@ -1,11 +1,11 @@
 .message-box {
   position: relative;
-  border: $border-thin solid $dodgerblue;
-  border-radius: $border-radius-md;
+  border: 1px solid $dodgerblue;
+  border-radius: 4px;
   background-color: $dodgerblue;
-  padding: $spacer-xs $spacer-md;
+  padding: 4px 15px;
   text-align: center;
-  font-size: $font-size-sm;
+  font-size: 1.3rem;
   color: $white;
 }
 

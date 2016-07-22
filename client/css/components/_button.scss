@@ -1,12 +1,14 @@
 .button {
-  border: $border-thin solid $dodgerblue-light;
-  border-radius: $border-radius-md;
-  padding: $spacer-xs $spacer-sm;
-  background-color: transparent;
-  font-weight: $font-weight-semibold;
+  display: block;
+  border: 1px solid $dodgerblue-light;
+  border-radius: 4px;
+  padding: 5px 15px;
+  background-color: $white;
+  font-weight: 600;
+  font-size: 1.4rem;
   color: $dodgerblue-light;
   cursor: pointer;
-  transition: $linear;
+  transition: all 100ms linear;
   &:hover:enabled {
   	border-color: $dodgerblue;
   	text-decoration: none;
@@ -18,8 +20,9 @@
   }
 }
 
-.button--small {
-  font-size: $font-size-sm;
+.button--sm {
+  padding: 5px 15px;
+  font-size: 1.3rem;
 }
 
 .button--primary {
