@@ -1,16 +1,21 @@
-import { Component } from '@angular/core'
+import { Component, ViewChild } from '@angular/core'
 import { REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 
 import { ValidationService } from '../../shared/validation.service'
 import { AuthService } from '../../shared/auth.service'
 
+import { DialogAnchorDirective } from '../../shared/dialog-anchor.directive'
+import { ConfirmDialogComponent } from '../../shared/confirm-dialog.component'
+
 @Component({
 	selector: 'fa-account',
 	templateUrl: './app/dashboard/account/account.component.html',
-	directives: [REACTIVE_FORM_DIRECTIVES]
+	directives: [REACTIVE_FORM_DIRECTIVES, DialogAnchorDirective]
 })
 
 export class AccountComponent {
+	@ViewChild(DialogAnchorDirective) dialogAnchor: DialogAnchorDirective
+
 	updateProfileForm: FormGroup
 	updatePasswordForm: FormGroup
 	updateProfileFormError: string
@@ -81,5 +86,20 @@ export class AccountComponent {
 		this.buildUpdatePasswordForm()
         this.updatePasswordFormSubmitted = false
 		setTimeout(() => this.updatePasswordFormSubmitted = true, 0)
+	}
+
+	openCloseAccountDialog() {
+		this.dialogAnchor
+          .createDialog(ConfirmDialogComponent)
+          .then((dialogComponentRef) => {
+            dialogComponentRef.instance.title = "Close Account"
+            dialogComponentRef.instance.body = "<p><strong>Warning:</strong> Closing your account is irreversible.</p><p>Are you sure you want to close your Footbagent account?</p>"
+            dialogComponentRef.instance.cancelButtonText = "Cancel"
+            dialogComponentRef.instance.confirmButtonText = "Close Account"
+            dialogComponentRef.instance.close.subscribe((event) => {
+                dialogComponentRef.destroy()
+                console.log(event)
+            })
+          })
 	}
 }

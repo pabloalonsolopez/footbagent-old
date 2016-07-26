@@ -1,0 +1,36 @@
+.dialog-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(42, 48, 58, 0.8);
+	z-index: 1;
+}
+
+.dialog {
+	border-radius: 4px;
+	background-color: $white;
+	box-shadow: 0 0 20px 0 $charade;
+	.dialog-header {
+		border-bottom: 1px solid $whitelilac;
+		padding: 20px;
+		text-align: center;
+		.dialog-title {
+		  line-height: 1.7;
+  		  font-size: 1.8rem;
+		}
+	}
+	.dialog-body {
+		padding: 20px;
+	}
+	.dialog-footer {
+		display: flex;
+		border-top: 1px solid $whitelilac;
+		padding: 20px;
+		justify-content: flex-end;
+	}
+}

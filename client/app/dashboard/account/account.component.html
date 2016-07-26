@@ -1,3 +1,4 @@
+<div dialog-anchor></div>
 <div class="top-nav">
 	<div class="container">
 		<p class="top-nav-title">Account Settings</p>
@@ -72,9 +73,9 @@
 				<div class="form-group">
 					<label for="newpassword">New Password</label>
 					<input id="newpassword" type="password" placeholder="Enter a new password" formControlName="newpassword"/>
-					<small class="help">Minimum 8 letters, numbers, and symbols</small>
+					<small class="help">Minimum 8 characters, at least 1 letter and 1 number</small>
 					<div class="alert alert--top alert--error" *ngIf="!updatePasswordForm.controls.newpassword.valid && updatePasswordForm.controls.newpassword.touched && updatePasswordForm.controls.newpassword.dirty">
-						<p>Enter a password with minimum 8 characters and at least 1 letter and 1 number</p>
+						<p>Enter a password with minimum 8 characters, at least 1 letter and 1 number</p>
 					</div>
 				</div>
 				<div class="form-group">
@@ -101,7 +102,7 @@
 		</div>
 		<div class="col-3-xs">
 			<div class="form-group">
-				<input type="submit" value="Close this account..." class="button button--primary-danger"/>
+				<input type="submit" value="Close this account..." class="button button--primary-danger" (click)="openCloseAccountDialog()"/>
 			</div>
 		</div>
 	</div>
