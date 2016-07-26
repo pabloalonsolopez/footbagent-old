@@ -1,0 +1,108 @@
+<div class="top-nav">
+	<div class="container">
+		<p class="top-nav-title">Account Settings</p>
+	</div>
+</div>
+<div class="container">
+	<div class="form-section row row-xs-middle">
+		<div class="col-xs">
+			<p class="form-section-title">Profile</p>
+			<p class="form-section-description">Your email address is your identity on Footbagent and is used to log in.</p>
+		</div>
+		<div class="col-xs">
+			<form novalidate autocomplete="off" [formGroup]="updateProfileForm" (ngSubmit)="onUpdateProfile()" *ngIf="updateProfileFormSubmitted">
+				<div class="form-group" *ngIf="updateProfileFormError">
+					<div class="alert alert--error">
+						<p>{{updateProfileFormError}}</p>
+					</div>
+				</div>
+				<div class="form-group" *ngIf="updateProfileFormMessage">
+					<div class="alert alert">
+						<p>{{updateProfileFormMessage}}</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="username">Email Address</label>
+					<input id="username" type="text" placeholder="Your email address" formControlName="username"/>
+					<div class="alert alert--top alert--error" *ngIf="!updateProfileForm.controls.username.valid && updateProfileForm.controls.username.touched && updateProfileForm.controls.username.dirty">
+						<p>Email format is not correct</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input id="name" type="text" placeholder="Your name" formControlName="name"/>
+					<div class="alert alert--top alert--error" *ngIf="!updateProfileForm.controls.name.valid && updateProfileForm.controls.name.touched && updateProfileForm.controls.name.dirty">
+						<p>Name is required</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-6-xs">
+							<input type="submit" value="Update Profile" class="button button--primary" [disabled]="!updateProfileForm.valid"/>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="form-section row row-xs-middle">
+		<div class="col-xs">
+			<p class="form-section-title">Password</p>
+			<p class="form-section-description">You can change your Footbagent account password from here.</p>
+		</div>
+		<div class="col-xs">
+			<form novalidate autocomplete="off" [formGroup]="updatePasswordForm" (ngSubmit)="onUpdatePassword()" *ngIf="updatePasswordFormSubmitted">
+				<div class="form-group" *ngIf="updatePasswordFormError">
+					<div class="alert alert--error">
+						<p>{{updatePasswordFormError}}</p>
+					</div>
+				</div>
+				<div class="form-group" *ngIf="updatePasswordFormMessage">
+					<div class="alert alert">
+						<p>{{updatePasswordFormMessage}}</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="currentpassword">Current Password</label>
+					<input id="currentpassword" type="password" placeholder="Enter your current password" formControlName="currentpassword"/>
+					<div class="alert alert--top alert--error" *ngIf="!updatePasswordForm.controls.currentpassword.valid && updatePasswordForm.controls.currentpassword.touched && updatePasswordForm.controls.currentpassword.dirty">
+						<p>Current password is required</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="newpassword">New Password</label>
+					<input id="newpassword" type="password" placeholder="Enter a new password" formControlName="newpassword"/>
+					<small class="help">Minimum 8 letters, numbers, and symbols</small>
+					<div class="alert alert--top alert--error" *ngIf="!updatePasswordForm.controls.newpassword.valid && updatePasswordForm.controls.newpassword.touched && updatePasswordForm.controls.newpassword.dirty">
+						<p>Enter a password with minimum 8 characters and at least 1 letter and 1 number</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label form="confirmpassword">Confirm New Password</label>
+					<input id="confirmpassword" type="password" placeholder="Enter the new password again" formControlName="confirmpassword"/>
+					<div class="alert alert--top alert--error" *ngIf="!updatePasswordForm.controls.confirmpassword.valid && updatePasswordForm.controls.confirmpassword.touched && updatePasswordForm.controls.confirmpassword.dirty">
+						<p>Confirm password does not match with new password</p>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-6-xs">
+							<input type="submit" value="Update Password" class="button button--primary" [disabled]="!updatePasswordForm.valid"/>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="form-section row row-xs-middle">
+		<div class="col-6-xs">
+			<p class="form-section-title form-section-title--danger">Close Account</p>
+			<p class="form-section-description"><strong>Warning:</strong> Closing your account is irreversible.</p>
+		</div>
+		<div class="col-3-xs">
+			<div class="form-group">
+				<input type="submit" value="Close this account..." class="button button--primary-danger"/>
+			</div>
+		</div>
+	</div>
+</div>

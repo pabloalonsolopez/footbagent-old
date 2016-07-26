@@ -1,15 +1,17 @@
 fa-footer {
   flex: 0 0 auto;
+}
+
+.footer {
   border-top: 1px solid $whitelilac;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 0;
   font-size: 1.3rem;
   color: $palesky;
   a {
-  	color: $regentgray;
-  	&:hover {
-  	  color: $palesky;
-  	  text-decoration: none;
+    color: $regentgray;
+    &:hover {
+      color: $palesky;
+      text-decoration: none;
     }
   }
 }

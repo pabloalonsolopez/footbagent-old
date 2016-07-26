@@ -1,7 +1,6 @@
 export class User {
   _id: string
-  firstName: string
-  lastName: string
+  name: string
   username: string
   password: string
 }

@@ -1,7 +1,8 @@
 //Colors Palette
 $white:										#FFFFFF !default;
-$whitelilac:								#ECEFF7 !default;
-$whitelilac-light:							lighten($whitelilac, 3%) !default;
+$whitelilac:								#E7EBF3 !default;
+$whitelilac-light:							lighten($whitelilac, 4%) !default;
+$whitelilac-lighter:						lighten($whitelilac, 6%) !default;
 $athensgray:								#E6E8F0 !default;
 $regentgray:								#858F9F !default;
 $palesky:									#6A7586 !default;
@@ -9,6 +10,7 @@ $charade:									#2A303A !default;
 $dodgerblue:								#4989F8 !default;
 $dodgerblue-light:							lighten($dodgerblue, 3%) !default;
 $valencia:									#D64242 !default;
+$valencia-light:							lighten($valencia, 3%) !default;
 
 //Media Queries
 $grid-breakpoints:							(xs: 0, sm: 544px, md: 768px, lg: 992px, xl: 1200px) !default;

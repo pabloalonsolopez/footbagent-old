@@ -3,9 +3,10 @@ import { join } from "path"
 import * as ejs from "ejs"
 import * as favicon from "serve-favicon"
 import { json, urlencoded } from "body-parser"
-
 import { connect } from "mongoose"
-import { DATABASE } from "./config"
+import * as jwt from 'express-jwt'
+import { DATABASE, SECRET } from "./config"
+
 import "./models/user"
 connect(DATABASE)
 
@@ -23,6 +24,11 @@ app.use(express.static(join(__dirname, 'public')))
 
 app.use(json())
 app.use(urlencoded({ extended: true }))
+
+const jwtCheck = jwt({ secret: SECRET })
+app.use('/api/auth/updateProfile', jwtCheck)
+app.use('/api/auth/updatePassword', jwtCheck)
+app.use('/api/secure', jwtCheck)
 
 app.use("/api/auth", AuthRouter)
 app.use('/*', IndexRouter)

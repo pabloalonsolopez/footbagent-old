@@ -1,31 +1,33 @@
-<div class="container-fluid">
-	<div class="header-content">
-		<div class="header-primary">
-			<a [routerLink]="['']" class="logo icon-logo"></a>
-		</div>
-		<div class="header-secondary">
-			<ul class="nav nav--inline">
-				<li *ngIf="!authService.isAuthenticated()"><a class="button button--sm" [routerLink]="['/login']">Log in</a></li>
-				<li *ngIf="!authService.isAuthenticated()"><a class="button button--sm button--primary" [routerLink]="['/signup']">Sign up</a></li>
-				<li *ngIf="authService.isAuthenticated()"><a class="button button--sm" [routerLink]="['/dashboard']">Dashboard</a></li>
-				<li *ngIf="authService.isAuthenticated()">
-					<div class="dropdown dropdown--right dropdown--session" dropdown>
-						<a class="avatar" dropdown-open></a>
-						<ul class="dropdown-menu">
-							<li>
-								<div class="dropdown--session-info">
-									<div class="avatar avatar--lg"></div>
-									<p>{{authService.profile.firstName}} {{authService.profile.lastName}}</p>
-									<p class="dropdown--session-info-username">{{authService.profile.username}}
-								</div>
-							<li>
-							<li><a>Account settings</a></li>
-							<li><a>Notifications</a></li>
-							<li><a (click)="authService.signout()">Sign out</a></li>
-						</ul>
-					</div>
-				</li>
-			</ul>
+<div class="header" *ngIf="show">
+	<div class="container-fluid">
+		<div class="header-content">
+			<div class="header-primary">
+				<a [routerLink]="['']" class="logo icon-logo"></a>
+			</div>
+			<div class="header-secondary">
+				<ul class="nav nav--inline">
+					<li *ngIf="!authService.isAuthenticated()"><a class="button button--sm" [routerLink]="['/login']">Log in</a></li>
+					<li *ngIf="!authService.isAuthenticated()"><a class="button button--sm button--primary" [routerLink]="['/signup']">Sign up</a></li>
+					<li *ngIf="authService.isAuthenticated()"><a class="button button--sm" [routerLink]="['/dashboard']">Dashboard</a></li>
+					<li *ngIf="authService.isAuthenticated()">
+						<div class="dropdown dropdown--right dropdown--session" dropdown>
+							<a class="avatar" dropdown-open></a>
+							<ul class="dropdown-menu">
+								<li>
+									<div class="dropdown--session-info">
+										<div class="avatar avatar--lg"></div>
+										<p>{{authService.profile.name}}</p>
+										<p class="dropdown--session-info-username">{{authService.profile.username}}
+									</div>
+								<li>
+								<li><a [routerLink]="['/dashboard/account']">Account settings</a></li>
+								<li><a [routerLink]="['/dashboard/notifications']">Notifications</a></li>
+								<li><a (click)="authService.signout()">Sign out</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

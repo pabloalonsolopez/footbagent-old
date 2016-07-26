@@ -15,8 +15,10 @@
   	color: $dodgerblue;
   }
   &[disabled] {
-	  opacity: 0.5;
-	  cursor: default;
+	  border-color: $athensgray;
+	  background-color: $whitelilac-lighter;
+    color: $athensgray;
+    cursor: default;
   }
 }
 
@@ -32,5 +34,15 @@
   	border-color: $dodgerblue;
   	background-color: $dodgerblue;
   	color: $white;
+  }
+  &-danger {
+    border: 1px solid $valencia-light;
+    background-color: $valencia-light;
+    color: $white;
+    &:hover:enabled {
+      border-color: $valencia;
+      background-color: $valencia;
+      color: $white;
+    }
   }
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core'
-import { REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { REACTIVE_FORM_DIRECTIVES, FormBuilder, FormGroup, FormControl } from '@angular/forms'
 import { Router, ROUTER_DIRECTIVES } from '@angular/router'
 
-import { ValidationService } from '../shared/validation.service'
 import { AuthService } from '../shared/auth.service'
 
 @Component({
@@ -12,9 +11,7 @@ import { AuthService } from '../shared/auth.service'
 })
 
 export class LoginComponent implements OnInit {
-	submitted: boolean = true
 	loginForm: FormGroup
-	error: any
 
 	constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {}
 	
@@ -27,21 +24,30 @@ export class LoginComponent implements OnInit {
             .subscribe(
             	response => this.router.navigate(['/dashboard']),
             	error => {
-            		this.error = error
-            		this.reset()
+            		let usernameControl = <FormControl>this.loginForm.controls['username']
+            		let passwordControl = <FormControl>this.loginForm.controls['password']
+            		switch (error.message) {
+            			case 'username':
+            				usernameControl.updateValue('')
+					        usernameControl.markAsTouched()
+					        usernameControl.markAsDirty()
+					        usernameControl.setErrors({'invalid': true})
+            				passwordControl.updateValue('')
+            				break;
+            			case 'password':
+            				passwordControl.updateValue('')
+					        passwordControl.markAsTouched()
+					        passwordControl.markAsDirty()
+					        passwordControl.setErrors({'invalid': true})
+            				break;
+            		}
             	})
 	}
 
 	buildForm() {
 		this.loginForm = this.formBuilder.group({
-	      'username': ['', [Validators.required, ValidationService.email]],
-	      'password': ['', Validators.required]
+	      username: [''],
+	      password: ['']
 	    })
-	}
-
-	reset() {
-		this.buildForm()
-        this.submitted = false
-		setTimeout(() => this.submitted = true, 0)
 	}
 }

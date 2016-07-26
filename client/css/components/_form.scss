@@ -14,6 +14,9 @@
 .form-section-title {
   font-size: 1.6rem;
   color: $dodgerblue;
+  &.form-section-title--danger {
+    color: $valencia;
+  }
 }
 
 .form-section-description {
@@ -24,6 +27,14 @@
 
 .form-group + .form-group {
   margin-top: 20px;
+}
+
+label {
+  display: block;
+  padding-bottom: 5px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: $palesky;
 }
 
 input, textarea {
@@ -43,4 +54,10 @@ input, textarea {
   &.ng-invalid.ng-touched.ng-dirty {
     border-color: $valencia;
   }
+}
+
+.help {
+  display: block;
+  padding-top: 5px;
+  color: $palesky;
 }

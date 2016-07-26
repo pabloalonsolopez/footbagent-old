@@ -14,13 +14,13 @@ import { DropdownOpenDirective } from '../shared/dropdown-open.directive'
 
 export class HeaderComponent implements OnInit{
 
-	private hide: boolean = false
+	private show: boolean = false
 
 	constructor(private router: Router, private authService: AuthService) { }
 
 	ngOnInit() {
 		this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
-			this.hide = (event.url == '/login' || event.url == '/signup')
+			this.show = (event.url !== '/login' && event.url !== '/signup')
 		})
 	}
 }

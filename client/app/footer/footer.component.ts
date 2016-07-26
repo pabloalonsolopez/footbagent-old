@@ -1,5 +1,5 @@
-import { Component } from '@angular/core'
-import { ROUTER_DIRECTIVES } from '@angular/router'
+import { Component, OnInit } from '@angular/core'
+import { ROUTER_DIRECTIVES, Router, NavigationEnd } from '@angular/router'
 
 @Component({
 	selector: 'fa-footer',
@@ -7,4 +7,16 @@ import { ROUTER_DIRECTIVES } from '@angular/router'
 	directives: [ROUTER_DIRECTIVES]
 })
 
-export class FooterComponent { }
+export class FooterComponent implements OnInit{
+
+	private show: boolean = false
+
+	constructor(private router: Router) { }
+
+	ngOnInit() {
+		this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
+			this.show = (event.url !== '/login' && event.url !== '/signup')
+		})
+	}
+	
+}
